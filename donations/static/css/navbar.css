@@ -1,0 +1,62 @@
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid grey 5px;
+  height: 80px;
+  /* width: 100%; */
+}
+
+.centerText{
+  text-align: center;
+}
+
+.nav-left {
+  float: left;
+  vertical-align: top;
+}
+.nav-right{
+  padding: 20px;
+}
+
+.logo {
+  margin: 10px;
+  display: inline-block;
+  height: 50px;
+  width: 60px;
+  border: solid 1px grey;
+}
+
+.slogan {
+  display: inline-block;
+  padding: 5px;
+  text-align: center;
+  margin: 20px;
+}
+
+.nav-center {
+  padding: 20px;
+}
+
+.nav-link {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.nav-link a {
+  /* padding:  5px; */
+  margin: 5px;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.donate {
+  height: 35px;
+  padding: 0px 30px 0px 30px;
+  /* color: white; */
+  /* background-color: #09C16F; */
+  /* border: none; */
+  border-radius: 5px;
+}

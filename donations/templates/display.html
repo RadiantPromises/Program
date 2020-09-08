@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate | Radiant Promises</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/display.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/display.js' %}"></script>
+  </head>
+  <body>
+    <nav>
+      <!-- <div class="nav-left">
+        <div class="logo">
+          <img src="" alt="Logo" />
+        </div>
+        <div class="slogan">
+          <h3>Radiant Promises</h3>
+          <p>Help Every Child's Light Shine!</p>
+        </div>
+      </div> -->
+      <div class="nav-center">
+        <div class="nav-link">
+          <a href="">Home</a>
+        </div>
+        <div class="nav-link">
+          <a href="">About</a>
+        </div>
+        <div class="nav-link">
+          <a href="">Our Target</a>
+        </div>
+        <div class="nav-link">
+          <a href="">Support Us</a>
+        </div>
+        <div class="nav-link">
+          <a href="">Events</a>
+        </div>
+        <div class="nav-link">
+          <a href="">Contact</a>
+        </div>
+      </div>
+      <div class="nav-right">
+        <button class="donate">Cart</button>
+      </div>
+    </nav>
+    <div class="container">
+      <section class="monetary border1">
+        <h3>Donate Right Now</h3>
+        <div class="reoccuring">
+          <div>
+            <div class="checkbox reoccuring-check"></div>
+            <p>Reoccuring</p>
+          </div>
+          <!-- <div>
+            <label for="">Next Billing Date:</label>
+            <input type="date"/>
+          </div> -->
+        </div>
+        <div>
+          <input type="number" placeholder="              $100" />
+          <button>Add To Cart</button>
+        </div>
+      </section>
+      <section class="phase1 border1">
+        <div class="types border2">
+          <div class="salary type-card">
+            <div class="card-header">
+              <h5>Salary</h5>
+              <div class="arrow-large left"></div>
+            </div>
+            <div class="card-body">
+              <div class="salary-position item">
+                CEO: $Salary #
+                <i class="arrow-small left"></i>
+              </div>
+              <div class="salary-position item">
+                Software Developer: $Salary
+                <i class="arrow-small left"></i>
+              </div>
+              <!-- <div class="salary-position item2">
+                <span class="item-status"></span>
+                Pet Dog: $Salary
+                <i class="arrow-small left"></i>
+
+              </div> -->
+              <!-- <progress
+              class="salary-position item"
+              value="22"
+              max="100">
+              22%  
+            </progress> -->
+            </div>
+          </div>
+
+          
+          <div class="property type-card">
+            <h5>Property</h5>
+            <div class="arrow-large left"></div>
+          </div>
+          <div class="vehicles type-card">
+            <h5>Vehicles</h5>
+            <div class="arrow-large left"></div>
+          </div>
+          <div class="items type-card">
+            <h5>Items</h5>
+            <div class="arrow-large left"></div>
+          </div>
+        </div>
+        <div class="prices border2">
+          <h3 class="centerText">Prices</h3>
+          <h5 class="centerText">$0-$100</h5>
+          <div class="zero-one_hundred item-list">
+            <div class="item">Keyboard <i class="arrow-small left"></i></div>
+            <div class="item">Mouse <i class="arrow-small left"></i></div>
+            <div class="item">Pens <i class="arrow-small left"></i></div>
+            <div class="item">Notepad <i class="arrow-small left"></i></div>
+            <div class="item">
+              Sticky Notes <i class="arrow-small left"></i>
+            </div>
+          </div>
+          <h5 class="centerText">$100-$10,000</h5>
+          <div class="one_hundred-ten_thousand"></div>
+          <h5 class="centerText">$10,000-$1,000,000</h5>
+          <div class="ten_thousand-one_million"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

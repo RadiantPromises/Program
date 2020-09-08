@@ -1,0 +1,149 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.border1{
+  border: solid red 1px;
+}
+
+.border2{
+  border: solid blue 1px;
+}
+
+.centerText{
+  text-align: center;
+}
+
+.container{
+  margin: auto;
+  /* width: 500px; */
+  min-height: 500px;
+  border: solid red 1px;
+}
+
+.monetary{
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reoccuring{
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.reoccuring div{
+  padding: 5px;
+}
+
+.reoccuring div > *{
+display: inline-block;
+vertical-align: middle;
+}
+
+.checkbox{
+  border: solid grey 1px;
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.checked{
+  background-color: #EC5F87;
+}
+
+.phase1{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.types, .prices{
+  display: inline-block;
+  width: 48%;
+  padding: 20px;
+}
+
+.card-header{
+  width: 100%;
+  height: 50px;
+  border: solid grey 1px;
+  padding: 4%;  
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-body{
+  width: 100%;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0px 1px 1px 1px;
+  padding: 5px;
+}
+
+.item{
+  border: solid grey 1px;
+  border-radius: 5px;
+  height: 20px;
+  display: inline-block;
+  padding: 5px;
+  line-height: 8px;
+}
+
+/* .item2{
+  border: solid grey 1px;
+  border-radius: 5px;
+  height: 20px;
+  width: 50px;
+  display: inline-block;
+  padding: 5px;
+  line-height: 8px;
+}
+
+.item-status{
+  background-color: #EC5F87;
+  height: 100%;
+  width: 25%;
+} */
+
+.arrow-small {
+  /* margin-left: 10px; */
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.arrow-large {
+  /* margin-left: 10px; */
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

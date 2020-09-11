@@ -10,26 +10,24 @@ $(document).ready(() => {
     }
   });
 
-  // Donation Type Drop Down Menus
-  $(".arrow-large").click((e) => {
+  // Card Body Display (Type & Item)
+  $(".arrow-large, .arrow-small").click((e) => {
+    // console.log($(e.target.parentElement.nextElementSibling).css("display"))
+    // console.log($(e.target).find(':nth-child(2)')) Header as button
     if ($(e.target).hasClass("left")) {
       $(e.target).removeClass("left");
       $(e.target).addClass("down");
-      console.log($(e.target.parentElement.parentElement))
+      // Show Body
+      $(e.target.parentElement.nextElementSibling).css("display","block");
+      if($(e.target).hasClass("arrow-small")){
+        $(e.target.parentElement.parentElement).css("display","block") // Item
+      }
+      // $(e.target.parentElement).css("display","block");
     } else if ($(e.target).hasClass("down")) {
       $(e.target).removeClass("down");
       $(e.target).addClass("left");
-    }
-  });
-
-// Item Drop Down Menus
-  $(".arrow-small").click((e) => {
-    if ($(e.target).hasClass("left")) {
-      $(e.target).removeClass("left");
-      $(e.target).addClass("down");
-    } else if ($(e.target).hasClass("down")) {
-      $(e.target).removeClass("down");
-      $(e.target).addClass("left");
+      // Hide Body
+      $(e.target.parentElement.nextElementSibling).css("display","none");
     }
   });
 });

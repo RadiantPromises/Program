@@ -37,7 +37,8 @@
           <div class="menu-toggle">&#9776;</div>
         </div>
         <div class="nav-right">
-          <button class="cart">Cart</button>
+          <a class="cart" href="/donations/cart">Cart {{items_in_cart}}</a>
+          <!-- <button class="cart">Cart</button> -->
         </div>
       </div>
     </nav>
@@ -55,8 +56,14 @@
           </div> -->
         </div>
         <div>
-          <input class="number" type="number" placeholder="    $100" />
-          <button>Add To Cart</button>
+          <form action="donations/addToCart" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="cost_id" value="1">
+            <input class="number" name="donation-amount" type="number" placeholder="    $100" />
+            <input class="number" name="donation-remainder" type="number" placeholder="    $100" />
+            <input class="number" name="donation-years" type="number" placeholder="    $100" />
+            <button type="submit" >Add To Cart</button>
+          </form>
         </div>
       </section>
       <section class="phase1 border1">
@@ -72,108 +79,76 @@
                 <div class="arrow-large left"></div>
               </button>
               <div class="card-body">
+                {% for user in users %}
                 <div class="salary-position item">
                   <div class="item-header">
-                    CEO: $Salary #
+                    {{user.title}}: ${{user.salary.overall}}
                     <i class="arrow-small left"></i>
                   </div>
                   <div class="item-body">
                     <div class="item-body-top">
-                      <h4 class="item-body-title">Dolly Chacon</h4>
+                      <h4 class="item-body-title">
+                        {{user.first_name}} {{user.last_name}}
+                      </h4>
                       <img
                         class="item-body-image"
                         src="{% static 'img/Dolly.jpg' %}"
                         alt=""
                       />
                     </div>
-                    <p>
-                      I envision a multicultural world where child abuse and
-                      abandonment are abolished. I am here to help our youth
-                      believe and understand how precious, cherished, loved and
-                      honored they are.
-                    </p>
+                    <p>{{user.description}}</p>
                     <h6>Certifications</h6>
-                    <b class="certifications">
-                      Business Administrator, Retired Pastor, Certified Master
-                      Life Coach, Marriage Coach, Mental Health Wellness Coach,
-                      Motivational Speaker, Talk Show Host.
-                    </b>
+                    <b class="certifications"> {{user.certifications}} </b>
                     <div class="action">
-                      <form action="">
+                      <form action="donations/addToCart" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="cost_id" value={{user.salary.id}}>
                         <div class="action-type">
-                          <input type="radio" />
-                          <!-- Create ability to check & uncheck radio inputs -->
+                          <input class="amount-checkbox" type="checkbox" />
                           <label for="amount">Amount</label>
                           <input
                             type="number"
-                            name="amount"
+                            name="donation-amount"
                             data-type="currency"
                             pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
-                            disabled
+                            
                           />
-                          <!-- Currency Data Shown https://codepen.io/559wade/pen/LRzEjj -->
                         </div>
 
                         <div class="action-type">
-                          <input type="radio" name="" id="" />
+                          <input class="remainder-checkbox" type="checkbox" />
                           <label for="remainder">Remainder</label>
                           <input
                             type="number"
-                            name="remainder"
-                            id=""
-                            disabled
+                            name="donation-remainder"
+                            
                           />
                         </div>
 
                         <div class="action-type">
-                          <input type="radio" name="" id="" />
+                          <input class="full-amount-checkbox" type="checkbox" />
                           <label for="full">Full Amount</label>
                           <input
                             class="number"
                             type="number"
+                            name="donation-years"
                             placeholder="     # of years"
-                            disabled
+                            
                           />
                         </div>
 
-                        <button>Add to Cart</button>
+                        <!-- Currency Data Shown https://codepen.io/559wade/pen/LRzEjj -->
+                        <button type="submit">Add to Cart</button>
                       </form>
                     </div>
-                    <!-- <p>
-                      Business Administrator, Retired Pastor, Certified Master
-                      Life Coach, Marriage Coach, Mental Health Wellness Coach,
-                      Motivational Speaker, Talk Show Host and Spiritual Mom to
-                      teens and young adults.
-                    </p> -->
                     <br />
                     <hr />
                   </div>
                 </div>
-                <div class="salary-position item">
-                  <div class="item-header">
-                    Lead Applications Developer: $Salary #
-                    <i class="arrow-small left"></i>
-                  </div>
-                  <div class="item-body">
-                    <div class="item-body-top">
-                      <h4 class="item-body-title">Ben Jensen</h4>
-                      <img
-                        class="item-body-image"
-                        src="{% static 'img/Ben.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <p>Devil Dog turned Child of God.</p>
-                    <p>
-                      Full Stack Developer, Former Intelligence Officer,
-                      Mechanical Engineer
-                    </p>
-                    <br />
-                    <hr />
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
+
             <div class="card">
               <button class="card-header">
                 <h5>Property</h5>

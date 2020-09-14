@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Radiant Promises</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+  <div class="container">
+    <a href="/donations">Donations</a>
+    {% if not cart.items %}
+      <p>{{cart}}</p>
+    {% endif %}
+    {% for item in cart.items %}
+    <p>Cost ID: {{item.cost_id}}</p>
+    <p>Amount: {{item.amount}}</p>
+    <p>Remainder: {{item.remainder}}</p>
+    <p>Years: {{item.years}}</p>
+    <a href="/donations/removeFromCart/{{item.cost_id}}">Remove from cart</a>
+    {% endfor %}
+    {% if cart.items %}
+    <a href="/donations/emptyCart">Empty Cart</a>
+    {% endif %}
+  </div>
+</body>
+</html>

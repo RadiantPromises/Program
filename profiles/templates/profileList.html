@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profiles | Radiant Promises</title>
-</head>
-<body>
-  <div class="container">
-    <h2>User Profiles</h2>
-    {% for user in users %}
-    <p>{{user.first_name}} has a last name of {{user.last_name}}</p>
-    {% endfor %}
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profiles | Radiant Promises</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>User Profiles</h2>
+      {% for user in users %}
+      <ul>
+        <li>{{user.first_name}}</li>
+        <li>{{user.last_name}}</li>
+        <li>{{user.birthday}}</li>
+        <li>{{user.email_address}}</li>
+        <li>{{user.password}}</li>
+        <li>{{user.position}}</li>
+        <li>{{user.title}}</li>
+        <li>
+          <ul>
+            <li>{{user.salary.overall}}</li>
+            <li>{{user.salary.current}}</li>
+            <li>{{user.salary.needed}}</li>
+            <li>{{user.salary.used}}</li>
+            <li>{{user.salary.leftover}}</li>
+            <li>{{user.salary.projected}}</li>
+          </ul>
+        </li>
+      </ul>
+      {% endfor %}
+    </div>
+  </body>
 </html>

@@ -1,4 +1,5 @@
 from django.db import models
+from generics.models import Cost
 import re #Regex
 import bcrypt
 
@@ -109,12 +110,18 @@ class UserManager(models.Manager):
 class User(models.Model):
   first_name = models.CharField(max_length=30)
   last_name = models.CharField(max_length=30)
+  image_location = models.CharField(max_length=255)
+  
   birthday = models.DateTimeField()
-  email_address = models.CharField(max_length=255)
+  email_address = models.CharField(max_length=50)
   password = models.CharField(max_length = 255)
 
-  position = models.CharField(max_length=200)
+  position = models.CharField(max_length=50)
+  title = models.CharField(max_length=50)
+  salary = models.OneToOneField(Cost,on_delete=models.CASCADE)
 
+  description = models.CharField(max_length=255)
+  certifications=models.CharField(max_length=255)
 
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)

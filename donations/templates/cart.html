@@ -1,28 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart | Radiant Promises</title>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'css/cart.css' %}">
-</head>
-<body>
-  <div class="container">
-    <a href="/donations">Donations</a>
-    {% if not cart.items %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | Radiant Promises</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/display.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-items">
+        <div class="nav-left">
+          <img
+            class="small-logo"
+            src="{% static 'img/small_logo.jpg' %}"
+            alt=""
+          />
+          <div class="slogan">
+            <h4>Radiant Promises</h4>
+            <h6>Help Every Child's Light Shine!</h6>
+          </div>
+        </div>
+        <div class="nav-center">
+          <div class="nav-links">
+            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="">Our Target</a>
+            <a class="nav-link" href="/donations">Support Us</a>
+            <a class="nav-link" href="">Events</a>
+            <a class="nav-link" href="">Contact</a>
+          </div>
+          <div class="menu-toggle">&#9776;</div>
+        </div>
+        <div class="nav-right">
+          <a class="cart-button" href="/donations/cart"
+            >Cart {{items_in_cart}}</a
+          >
+          <!-- <button class="cart">Cart</button> -->
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <section class="monetary">
+        <a class="back-link" href="/donations">
+          <div class="arrow-large left black"></div>
+          <h3 class="back-text">Back to Donations</h3>
+        </a>
+        <!-- <div class="reoccuring">
+          <div>
+            <div class="checkbox reoccuring-check"></div>
+            <p>Reoccuring</p>
+          </div>
+        </div> -->
+        <div>
+          <form action="addToCart" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="cost_id" value="1" />
+            <input
+              class="number"
+              name="donation-amount"
+              type="number"
+              placeholder="    $100"
+            />
+            <input
+              class="number"
+              name="donation-remainder"
+              type="number"
+              placeholder="    $100"
+            />
+            <input
+              class="number"
+              name="donation-years"
+              type="number"
+              placeholder="    $100"
+            />
+            <button type="submit">Add To Cart</button>
+          </form>
+        </div>
+      </section>
+      <section class="current-cart border1">
+        {% for item in cart.items %}
+        <div class="cart-item">
+          <div class="cart-item-left">
+            <img
+              class="cart-item-image"
+              src="{% static 'img/Dolly.jpg' %}"
+              alt=""
+            />
+            <div class="cart-item-info">
+              <div class="cart-item-title">{{item.title}}</div>
+              <div class="cart-item-description">{{item.description}}</div>
+            </div>
+          </div>
+          <div class="cart-item-right">
+            <div class="cart-item-costs">
+              <p>Quantity: {{item.quantity}}</p>
+              <p>Full Cost: {{item.full_cost}}</p>
+              <p>Partial Cost: {{item.partial_cost}}</p>
+              <p>Payment Reoccurance: {{item.reoccurance_date}}</p>
+            </div>
+            <div class="cart-item-total">
+              <p>Total</p>
+              <button>Add to List</button>
+              <button>Remove</button>
+            </div>
+            <!-- {{item.cart_item_id}} {{item.cost_id}} -->
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+      <section class="section-spacer"></section>
+
+      <section class="phase1">
+        <button class="phase-header">
+          <h2 class="centerText">Phase 1</h2>
+        </button>
+        <div class="phase-content-inactive">
+          <div class="types">
+            <h3 class="centerText">Organizational Needs</h3>
+            <div class="card">
+              <button class="card-header">
+                <h5>Salary</h5>
+                <div class="arrow-large left"></div>
+              </button>
+              <div class="card-body">
+                {% for user in users %}
+                <div class="item salary-position">
+                  <div class="item-header">
+                    {{user.title}}: ${{user.salary.overall}}
+                    <i class="arrow-small left"></i>
+                  </div>
+                  <div class="item-body">
+                    <div class="item-body-info">
+                      <div class="item-body-heading">
+                        <h4 class="item-body-title">
+                          {{user.first_name}} {{user.last_name}}
+                        </h4>
+                        <img
+                          class="item-body-image"
+                          src="{% static 'img/Dolly.jpg' %}"
+                          alt=""
+                        />
+                      </div>
+                      <div class="item-body-description">
+                        <p>{{user.description}}</p>
+                        <h6>Certifications</h6>
+                        <b class="certifications"> {{user.certifications}} </b>
+                      </div>
+                    </div>
+                    <div class="item-body-action">
+                      <form action="addToCart" method="POST">
+                        {% csrf_token %}
+                        <input
+                          type="hidden"
+                          name="cost_id"
+                          value="{{user.salary.id}}"
+                        />
+                        <div class="full-amount-bar flex-between">
+                          <div class="full-amount-left inline-block">
+                            <input
+                              class="checkbox"
+                              name="full-amount"
+                              type="checkbox"
+                            />
+                            <label for="full-amount">Full Amount</label>
+                          </div>
+                          <div class="full-amount-right">
+                            <select name="number-of-years" id="">
+                              {% for number in 11|get_range %}
+                              <option value="{{number}}">{{number}}</option>
+                              {% endfor %}
+                            </select>
+                            <label for="number-of-years">years</label>
+                          </div>
+                        </div>
+                        <div class="partial-amount-bar">
+                          <div class="partial-amount-titles flex-between">
+                            <h4 class="inline-block">Partial Amount</h4>
+                            <div class="reoccuring">
+                              <div>
+                                <div class="checkbox reoccuring-check"></div>
+                                <p>Reoccuring</p>
+                              </div>
+                            </div>
+                            <!-- <div class="reoccuring inline-block">
+                              <input class="checkbox" name="reoccuring-check" type="checkbox" />
+                              <label for="reoccuring-check">Reoccuring?</label>
+                            </div> -->
+                          </div>
+                          <div class="partial-amount-inputs">
+                            <div class="partial-amount-input">
+                              <label for="partial-amount-remainder">$</label>
+                              <input
+                                name="partial-amount-remainder"
+                                type="number"
+                                placeholder="25,000"
+                              />
+                            </div>
+                            <div class="partial-amount-input">
+                              <input
+                                name="partial-amount-percentage"
+                                type="number"
+                                placeholder="25"
+                              />
+                              <label for="partial-amount-percentage">%</label>
+                            </div>
+                            <div class="partial-amount-input">
+                              <label for="partial-amount-other">$</label>
+                              <input type="number" />
+                            </div>
+                          </div>
+                          <div class="partial-amount-labels flex-between">
+                            <h6 class="partial-amount-label inline-block">
+                              Remainder
+                            </h6>
+                            <h6 class="partial-amount-label inline-block"></h6>
+                            <h6 class="partial-amount-label inline-block">
+                              Other
+                            </h6>
+                          </div>
+                        </div>
+                        <!-- Currency Data Shown https://codepen.io/559wade/pen/LRzEjj -->
+
+                        <div class="button-bar">
+                          <label for="add-to-list">Add to list</label>
+                          <select name="add-to-list" id="">
+                            <option value="next-year">Next Year</option>
+                            <option value="later">Later</option>
+                            <option value="next-paycheck">Next Paycheck</option>
+                          </select>
+                          <button class="add-to-cart-button" type="submit">
+                            Add to Cart
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- <br /> -->
+                    <!-- <hr /> -->
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="card">
+              <button class="card-header">
+                <h5>Property</h5>
+                <div class="arrow-large left"></div>
+              </button>
+              <div class="card-body">
+                <div class="item">
+                  <div class="item-header">
+                    Lodge: $1.5M
+                    <i class="arrow-small left"></i>
+                  </div>
+                  <div class="item-body">
+                    <div class="item-body-top">
+                      <h4 class="item-body-title">Pine Hills Lodge</h4>
+                      <img
+                        class="item-body-image-portrait"
+                        src="{% static 'img/pine-hills-lodge.jpg' %}"
+                        alt=""
+                      />
+                    </div>
+                    <p>Peaceful retreat in the mountains of Julian</p>
+                    <p>
+                      Serene woodland lodge, composed of cabins, a main building
+                      and a 4-unit bungalow, dates from 1912.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <button class="card-header">
+                <h5>Items</h5>
+                <div class="arrow-large left"></div>
+              </button>
+              <div class="card-body">
+                <div class="item-header">
+                  iPad: $1,000
+                  <i class="arrow-small left"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prices">
+            <h3 class="centerText">Donate By Cost?</h3>
+            <h5 class="price-header centerText">$0-$100</h5>
+            <div class="zero-one_hundred item-list">
+              <div class="item-header">
+                Keyboard <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Mouse <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Pens <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Notepad <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Sticky Notes <i class="arrow-small left"></i>
+              </div>
+            </div>
+            <h5 class="price-header centerText">$100-$10,000</h5>
+            <div class="one_hundred-ten_thousand">
+              <div class="item-header">
+                iPad: $1,000 <i class="arrow-small left"></i>
+              </div>
+            </div>
+            <h5 class="price-header centerText">$10,000-$1,000,000</h5>
+            <div class="ten_thousand-one_million">
+              <div class="item-header">
+                CEO Salary: $??? <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Software Developer Salary: $??? <i class="arrow-small left"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="phase2">
+        <button class="phase-header">
+          <h2 class="centerText">Phase 2</h2>
+        </button>
+        <div class="phase-content-inactive">
+          <div class="types">
+            <h3 class="centerText">Organizational Needs</h3>
+            <div class="card">
+              <button class="card-header">
+                <h5>Salary</h5>
+                <div class="arrow-large left"></div>
+              </button>
+              <div class="card-body">
+                <div class="salary-position item-header">
+                  CEO: $Salary #
+                  <i class="arrow-small left"></i>
+                </div>
+                <div class="salary-position item-header">
+                  Software Developer: $Salary
+                  <i class="arrow-small left"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <button class="card-header">
+                <h5>Property</h5>
+                <div class="arrow-large left"></div>
+              </button>
+              <div class="card-body">
+                <div class="item-header">
+                  Pine Hills Lodge: $1.5M
+                  <i class="arrow-small left"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <button class="card-header">
+                <h5>Vehicles</h5>
+                <div class="arrow-large left"></div>
+              </button>
+              <div class="card-body">
+                <div class="item-header">
+                  Need Vehicles?: $Cost
+                  <i class="arrow-small left"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <button class="card-header">
+                <h5>Items</h5>
+                <div class="arrow-large left"></div>
+              </button>
+              <div class="card-body">
+                <div class="item-header">
+                  iPad: $1,000
+                  <i class="arrow-small left"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prices">
+            <h3 class="centerText">Donate By Cost?</h3>
+            <h5 class="price-header centerText">$0-$100</h5>
+            <div class="zero-one_hundred item-list">
+              <div class="item-header">
+                Keyboard <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Mouse <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Pens <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Notepad <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Sticky Notes <i class="arrow-small left"></i>
+              </div>
+            </div>
+            <h5 class="price-header centerText">$100-$10,000</h5>
+            <div class="one_hundred-ten_thousand">
+              <div class="item-header">
+                iPad: $1,000 <i class="arrow-small left"></i>
+              </div>
+            </div>
+            <h5 class="price-header centerText">$10,000-$1,000,000</h5>
+            <div class="ten_thousand-one_million">
+              <div class="item-header">
+                CEO Salary: $??? <i class="arrow-small left"></i>
+              </div>
+              <div class="item-header">
+                Software Developer Salary: $??? <i class="arrow-small left"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="raw-data">
+      <a href="/donations">Donations</a>
+      {% if not cart.items %}
       <p>{{cart}}</p>
-    {% endif %}
-    {% for item in cart.items %}
-    <p>Cost ID: {{item.cost_id}}</p>
-    <p>Amount: {{item.amount}}</p>
-    <p>Remainder: {{item.remainder}}</p>
-    <p>Years: {{item.years}}</p>
-    <a href="/donations/removeFromCart/{{item.cost_id}}">Remove from cart</a>
-    {% endfor %}
-    {% if cart.items %}
-    <a href="/donations/emptyCart">Empty Cart</a>
-    {% endif %}
-  </div>
-</body>
+      {% endif %} {% for item in cart.items %}
+      <p>Cost ID: {{item.cost_id}}</p>
+      <p>Amount: {{item.amount}}</p>
+      <p>Remainder: {{item.remainder}}</p>
+      <p>Years: {{item.years}}</p>
+      <a href="/donations/removeFromCart/{{item.cost_id}}">Remove from cart</a>
+      {% endfor %} {% if cart.items %}
+      <a href="/donations/emptyCart">Empty Cart</a>
+      {% endif %}
+    </div>
+  </body>
 </html>

@@ -37,41 +37,54 @@
           <div class="menu-toggle">&#9776;</div>
         </div>
         <div class="nav-right">
-          <a class="cart" href="/donations/cart">Cart {{items_in_cart}}</a>
+          <a class="cart-button" href="/donations/cart"
+            >Cart {{items_in_cart}}</a
+          >
           <!-- <button class="cart">Cart</button> -->
         </div>
       </div>
     </nav>
     <div class="container">
-      <section class="monetary border1">
+      <section class="monetary">
         <h3>Donate Now</h3>
-        <div class="reoccuring">
+        <!-- <div class="reoccuring">
           <div>
             <div class="checkbox reoccuring-check"></div>
             <p>Reoccuring</p>
           </div>
-          <!-- <div>
-            <label for="">Next Billing Date:</label>
-            <input type="date"/>
-          </div> -->
-        </div>
+        </div> -->
         <div>
-          <form action="donations/addToCart" method="POST">
+          <form action="addToCart" method="POST">
             {% csrf_token %}
-            <input type="hidden" name="cost_id" value="1">
-            <input class="number" name="donation-amount" type="number" placeholder="    $100" />
-            <input class="number" name="donation-remainder" type="number" placeholder="    $100" />
-            <input class="number" name="donation-years" type="number" placeholder="    $100" />
-            <button type="submit" >Add To Cart</button>
+            <input type="hidden" name="cost_id" value="1" />
+            <input
+              class="number"
+              name="donation-amount"
+              type="number"
+              placeholder="    $100"
+            />
+            <input
+              class="number"
+              name="donation-remainder"
+              type="number"
+              placeholder="    $100"
+            />
+            <input
+              class="number"
+              name="donation-years"
+              type="number"
+              placeholder="    $100"
+            />
+            <button type="submit">Add To Cart</button>
           </form>
         </div>
       </section>
-      <section class="phase1 border1">
+      <section class="phase1">
         <button class="phase-header">
           <h2 class="centerText">Phase 1</h2>
         </button>
         <div class="phase-content-current">
-          <div class="types border2">
+          <div class="types">
             <h3 class="centerText">Organizational Needs</h3>
             <div class="card">
               <button class="card-header">
@@ -80,69 +93,139 @@
               </button>
               <div class="card-body">
                 {% for user in users %}
-                <div class="salary-position item">
+                <div class="item salary-position">
                   <div class="item-header">
                     {{user.title}}: ${{user.salary.overall}}
                     <i class="arrow-small left"></i>
                   </div>
                   <div class="item-body">
-                    <div class="item-body-top">
-                      <h4 class="item-body-title">
-                        {{user.first_name}} {{user.last_name}}
-                      </h4>
-                      <img
-                        class="item-body-image"
-                        src="{% static 'img/Dolly.jpg' %}"
-                        alt=""
-                      />
+                    <div class="item-body-info">
+                      <div class="item-body-heading">
+                        <h4 class="item-body-title">
+                          {{user.first_name}} {{user.last_name}}
+                        </h4>
+                        <img
+                          class="item-body-image"
+                          src="{% static 'img/Dolly.jpg' %}"
+                          alt=""
+                        />
+                      </div>
+                      <div class="item-body-description">
+                        <p>{{user.description}}</p>
+                        <h6>Certifications</h6>
+                        <b class="certifications"> {{user.certifications}} </b>
+                      </div>
                     </div>
-                    <p>{{user.description}}</p>
-                    <h6>Certifications</h6>
-                    <b class="certifications"> {{user.certifications}} </b>
-                    <div class="action">
-                      <form action="donations/addToCart" method="POST">
+                    <div class="item-body-action">
+                      <form action="addToCart" method="POST">
                         {% csrf_token %}
-                        <input type="hidden" name="cost_id" value={{user.salary.id}}>
-                        <div class="action-type">
-                          <input class="amount-checkbox" type="checkbox" />
-                          <label for="amount">Amount</label>
+                        <div class="hidden_inputs">
                           <input
-                            type="number"
-                            name="donation-amount"
-                            data-type="currency"
-                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
-                            
+                            type="hidden"
+                            name="cost_id"
+                            value="{{user.salary.id}}"
                           />
-                        </div>
-
-                        <div class="action-type">
-                          <input class="remainder-checkbox" type="checkbox" />
-                          <label for="remainder">Remainder</label>
                           <input
-                            type="number"
-                            name="donation-remainder"
-                            
+                            type="hidden"
+                            name="title"
+                            value="{{user.title}}"
                           />
-                        </div>
-
-                        <div class="action-type">
-                          <input class="full-amount-checkbox" type="checkbox" />
-                          <label for="full">Full Amount</label>
                           <input
-                            class="number"
-                            type="number"
-                            name="donation-years"
-                            placeholder="     # of years"
-                            
+                            type="hidden"
+                            name="description"
+                            value="{{user.first_name}} {{user.last_name}}"
                           />
+                          <input type="hidden" name="quantity" value="3" />
+                          <input type="hidden" name="full_cost" value="10000" />
+                          <input
+                            type="hidden"
+                            name="partial_cost"
+                            value="2000"
+                          />
+                          <input type="hidden" name="reoccurance_date"
+                          value=2/2/2020>
                         </div>
-
+                        <div class="full-amount-bar flex-between">
+                          <div class="full-amount-left inline-block">
+                            <input
+                              class="checkbox"
+                              name="full-amount"
+                              type="checkbox"
+                            />
+                            <label for="full-amount">Full Amount</label>
+                          </div>
+                          <div class="full-amount-right">
+                            <select name="number-of-years" id="">
+                              {% for number in 11|get_range %}
+                              <option value="{{number}}">{{number}}</option>
+                              {% endfor %}
+                            </select>
+                            <label for="number-of-years">years</label>
+                          </div>
+                        </div>
+                        <div class="partial-amount-bar">
+                          <div class="partial-amount-titles flex-between">
+                            <h4 class="inline-block">Partial Amount</h4>
+                            <div class="reoccuring">
+                              <div>
+                                <div class="checkbox reoccuring-check"></div>
+                                <p>Reoccuring</p>
+                              </div>
+                            </div>
+                            <!-- <div class="reoccuring inline-block">
+                              <input class="checkbox" name="reoccuring-check" type="checkbox" />
+                              <label for="reoccuring-check">Reoccuring?</label>
+                            </div> -->
+                          </div>
+                          <div class="partial-amount-inputs">
+                            <div class="partial-amount-input">
+                              <label for="partial-amount-remainder">$</label>
+                              <input
+                                name="partial-amount-remainder"
+                                type="number"
+                                placeholder="25,000"
+                              />
+                            </div>
+                            <div class="partial-amount-input">
+                              <input
+                                name="partial-amount-percentage"
+                                type="number"
+                                placeholder="25"
+                              />
+                              <label for="partial-amount-percentage">%</label>
+                            </div>
+                            <div class="partial-amount-input">
+                              <label for="partial-amount-other">$</label>
+                              <input type="number" />
+                            </div>
+                          </div>
+                          <div class="partial-amount-labels flex-between">
+                            <h6 class="partial-amount-label inline-block">
+                              Remainder
+                            </h6>
+                            <h6 class="partial-amount-label inline-block"></h6>
+                            <h6 class="partial-amount-label inline-block">
+                              Other
+                            </h6>
+                          </div>
+                        </div>
                         <!-- Currency Data Shown https://codepen.io/559wade/pen/LRzEjj -->
-                        <button type="submit">Add to Cart</button>
+
+                        <div class="button-bar">
+                          <label for="add-to-list">Add to list</label>
+                          <select name="add-to-list" id="">
+                            <option value="next-year">Next Year</option>
+                            <option value="later">Later</option>
+                            <option value="next-paycheck">Next Paycheck</option>
+                          </select>
+                          <button class="add-to-cart-button" type="submit">
+                            Add to Cart
+                          </button>
+                        </div>
                       </form>
                     </div>
-                    <br />
-                    <hr />
+                    <!-- <br /> -->
+                    <!-- <hr /> -->
                   </div>
                 </div>
                 {% endfor %}
@@ -160,7 +243,7 @@
                     Lodge: $1.5M
                     <i class="arrow-small left"></i>
                   </div>
-                  <div class="item-body border2">
+                  <div class="item-body">
                     <div class="item-body-top">
                       <h4 class="item-body-title">Pine Hills Lodge</h4>
                       <img
@@ -192,7 +275,7 @@
               </div>
             </div>
           </div>
-          <div class="prices border2">
+          <div class="prices">
             <h3 class="centerText">Donate By Cost?</h3>
             <h5 class="price-header centerText">$0-$100</h5>
             <div class="zero-one_hundred item-list">
@@ -230,12 +313,12 @@
           </div>
         </div>
       </section>
-      <section class="phase2 border1">
+      <section class="phase2">
         <button class="phase-header">
           <h2 class="centerText">Phase 2</h2>
         </button>
         <div class="phase-content-inactive">
-          <div class="types border2">
+          <div class="types">
             <h3 class="centerText">Organizational Needs</h3>
             <div class="card">
               <button class="card-header">
@@ -293,7 +376,7 @@
               </div>
             </div>
           </div>
-          <div class="prices border2">
+          <div class="prices">
             <h3 class="centerText">Donate By Cost?</h3>
             <h5 class="price-header centerText">$0-$100</h5>
             <div class="zero-one_hundred item-list">

@@ -14,18 +14,17 @@
 
 
 .nav-left, .nav-right{
-  width: 235px;
+  min-width: 235px;
 }
 
 .nav-center {
-  width: 380px;
+  min-width: 380px;
   padding: 15px;
   vertical-align: top;
 }
 
 .nav-right{
   padding: 7px;
-  /* width: 85px; */
 }
 
 .centerText{
@@ -76,11 +75,27 @@
   background-color: #EC5F87;
 }
 
+@media only screen and (max-width: 812px) {
+  .slogan{
+    display: none;
+
+  }
+}
+
 @media only screen and (max-width: 730px) {
   .nav-links{
     display: none;
   }
   .menu-toggle{
     display: inline-block;
+  }
+
+  .nav-center{
+    display: flex;
+    justify-content: center;
+    min-width: 25px;
+  }
+  .nav-left,.nav-right{
+    min-width: 55px;
   }
 }

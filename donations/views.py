@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse,redirect
 from django.template.defaulttags import register
 from profiles.models import User
 import json
+import os
 
 @register.filter
 def get_range(value):
@@ -22,7 +23,11 @@ def index(request):
     'users':users,
     # 'items_in_cart':items_in_cart
   }
-  return render(request,"display.html",context)
+
+  # print('\n OS Environment:',os.environ.get['TOAST'],'\n')
+  # TOASTY = os.environ.get('TOAST')
+  # print('\n Secret Key:',TOASTY,"\n")
+  return render(request,"current_priorities.html",context)
   
 def addToCart(request):
   

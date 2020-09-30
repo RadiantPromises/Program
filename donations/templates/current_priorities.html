@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate | Radiant Promises</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/navbar_grid.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'css/current_priorities.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/display.js' %}"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-items">
+        <div class="nav-left">
+          <img
+            class="small-logo"
+            src="{% static 'img/small_logo.jpg' %}"
+            alt=""
+          />
+          <div class="slogan">
+            <h4>Radiant Promises</h4>
+            <h6>Help Every Child's Light Shine!</h6>
+          </div>
+        </div>
+        <div class="nav-center">
+          <div class="nav-links">
+            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="">Our Target</a>
+            <a class="nav-link current-page" href="">Support Us</a>
+            <a class="nav-link" href="">Events</a>
+            <a class="nav-link" href="">Contact</a>
+          </div>
+          <div class="menu-toggle">&#9776;</div>
+        </div>
+        <div class="nav-right">
+          <!-- <a class="cart-button" href="/donations/cart"
+            >Cart {{items_in_cart}}</a
+          > -->
+          <!-- <button class="cart">Cart</button> -->
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Donation Priority</h1>
+      <section class="priority-display">
+        <div class="priority-content">
+          <div class="display-item">
+            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
+            <h4>Dining Room</h4>
+          </div>
+          <div class="display-item">
+            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
+            <h4>Dining Room</h4>
+          </div>
+          <div class="display-item">
+            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
+            <h4>Dining Room</h4>
+          </div>
+        </div>
+      </section>
+
+      <section class="action">
+        <div class="progress-bar">
+          <div class="progress">Raised</div>
+          <div class="leftover"></div>
+        </div>
+        <div class="give-buttons">
+          <div class="give-button">$500</div>
+          <div class="give-button">$250</div>
+          <div class="give-button">$100</div>
+          <div class="give-button">$50</div>
+        </div>
+        <form action="addToCart" method="POST">
+          {% csrf_token %}
+          <div class="hidden_inputs">
+            <input type="hidden" name="cost_id" value="{{user.salary.id}}" />
+            <input type="hidden" name="title" value="{{user.title}}" />
+            <input
+              type="hidden"
+              name="description"
+              value="{{user.first_name}} {{user.last_name}}"
+            />
+            <input type="hidden" name="quantity" value="3" />
+            <input type="hidden" name="full_cost" value="10000" />
+            <input type="hidden" name="partial_cost" value="2000" />
+            <input type="hidden" name="reoccurance_date" value=2/2/2020>
+          </div>
+
+          <div class="partial-amount-bar">
+            <div class="partial-amount-titles">
+              <h4>Partial Amount</h4>
+            </div>
+            <div class="partial-amount-inputs">
+              <div class="partial-amount-input">
+                <label for="partial-amount-remainder">$</label>
+                <input
+                  name="partial-amount-remainder"
+                  type="number"
+                  placeholder="25,000"
+                />
+              </div>
+              <div class="partial-amount-input">
+                <input
+                  name="partial-amount-percentage"
+                  type="number"
+                  placeholder="25"
+                />
+                <label for="partial-amount-percentage">%</label>
+              </div>
+              <div class="partial-amount-input">
+                <label for="partial-amount-other">$</label>
+                <input type="number" />
+              </div>
+            </div>
+            <div class="partial-amount-labels flex-between">
+              <h6 class="partial-amount-label inline-block">Remainder</h6>
+              <h6 class="partial-amount-label inline-block"></h6>
+              <h6 class="partial-amount-label inline-block">Other</h6>
+            </div>
+          </div>
+          <!-- Currency Data Shown https://codepen.io/559wade/pen/LRzEjj -->
+
+          <div class="submit-bar">
+            <div class="submit-item reoccuring">
+              <div class="checkbox reoccuring-check"></div>
+              <label>Reoccuring</label>
+            </div>
+            <div class="submit-item">
+              <input
+                class="go-to-payment"
+                type="submit"
+                value="Go To Payment"
+              />
+            </div>
+          </div>
+        </form>
+      </section>
+      <section class="how-to-give">
+        <h1>Additional Ways to Give</h1>
+        <div class="row">
+          <div class="giving-type">
+            <h2 class="giving-header">Real Estate</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+              <span>
+                <a href="">Read More...</a>
+              </span>
+            </p>
+          </div>
+          <div class="giving-type">
+            <h2 class="giving-header">Bequest</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+              <span>
+                <a href="">Read More...</a>
+              </span>
+            </p>
+          </div>
+          <div class="giving-type">
+            <h2 class="giving-header">Vehicle</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+              <span>
+                <a href="">Read More...</a>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="giving-type">
+            <h2 class="giving-header">Stocks</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+              <span>
+                <a href="">Read More...</a>
+              </span>
+            </p>
+          </div>
+          <div class="giving-type">
+            <h2 class="giving-header">IRA Rollover</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+              <span>
+                <a href="">Read More...</a>
+              </span>
+            </p>
+          </div>
+          <div class="giving-type">
+            <h2 class="giving-header">Beneficiary Gifts</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+              <span>
+                <a href="">Read More...</a>
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

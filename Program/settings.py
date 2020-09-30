@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+# import environ
+
+# env = environ.Env()
+# env.read_env()
+# SECRET_KEY = env('SECRET_KEY')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,8 +29,9 @@ SECRET_KEY = '!bct)=iel5xyilj2u#(rgr1&utef0iyzqq$pt^deyle6mvd!ju'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG can be True/False or 1/0
+# DEBUG = int(os.environ.get('DEBUG', default=1))
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,7 +88,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

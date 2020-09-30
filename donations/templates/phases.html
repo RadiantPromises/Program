@@ -81,23 +81,42 @@
       </section>
       <section class="phase1">
         <button class="phase-header">
-          <h2 class="centerText">Phase 1</h2>
+          <div class="phase-header-color"></div>
+          <div class="phase-header-progress-bar">
+            <h4 class="phase-header-progress-bar-text">$20,000</h4>
+          </div>
+          <div class="phase-header-text">
+            <div class="phase-header-text-layout">
+              <h2 class="centerText">Phase 1</h2>
+            </div>
+          </div>
+          <h4 class="phase-header-color-text">$100,000</h4>
         </button>
         <div class="phase-content-current">
           <div class="types">
             <h3 class="centerText">Organizational Needs</h3>
             <div class="card">
               <button class="card-header">
-                <h5>Salary</h5>
-                <div class="arrow-large left"></div>
+                <div class="card-header-color"></div>
+                <div class="card-header-progress-bar"></div>
+                <div class="card-header-text">
+                  <div class="card-header-text-layout">
+                    <h4>Salary</h4>
+                    <i class="arrow-large left"></i>
+                  </div>
+                </div>
               </button>
               <div class="card-body">
                 {% for user in users %}
                 <div class="item salary-position">
-                  <div class="item-header">
-                    {{user.title}}: ${{user.salary.overall}}
-                    <i class="arrow-small left"></i>
-                  </div>
+                  <button class="item-header">
+                    <div class="item-header-color"></div>
+                    <div class="item-header-progress-bar"></div>
+                    <div class="item-header-text">
+                      {{user.title}}: ${{user.salary.overall}}
+                      <i class="arrow-small left"></i>
+                    </div>
+                  </button>
                   <div class="item-body">
                     <div class="item-body-info">
                       <div class="item-body-heading">

@@ -1,0 +1,274 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Dancing;
+  src: local("Dancing"),
+    url("../fonts/DancingScript-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Lobster;
+  src: local("Lobster"), url("../fonts/Lobster-Regular.ttf") format("truetype");
+}
+
+.container {
+  text-align: center;
+  padding: 5px;
+}
+
+.container h1 {
+  font-family: Dancing;
+  /* font-family: Lobster; */
+  font-size: 40px;
+  color: #ec5f87;
+  border-bottom: solid gray 2px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.priority-content {
+  width: auto;
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.display-item {
+  padding: 10px 10px 10px 10px;
+  width: 25vw;
+  display: inline-block;
+  /* border: solid blue 1px; */
+}
+
+.display-item img {
+  height: 20vw;
+  width: 100%;
+  border: solid hotpink 3px;
+  margin-bottom: 10px;
+}
+
+.priority-content :nth-of-type(2) {
+  width: 40vw;
+  /* border: solid red 1px; */
+}
+
+.display-item {
+  border-radius: 1vw;
+  -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
+  box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
+}
+
+.action {
+  width: 40vw;
+  line-height: 25px;
+  margin: 50px auto 20px auto;
+  -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
+  -moz-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
+  box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
+  border: solid 1px #ec5f87;
+  border-radius: 5px;
+}
+
+.progress-bar {
+  height: 25px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px auto 0px auto;
+  border: solid black 1px;
+  border-radius: 15px;
+}
+
+.progress {
+  display: inline-block;
+  height: 100%;
+  width: 25%;
+  background-color: #74d773;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
+.leftover {
+  display: inline-block;
+  height: 100%;
+  width: 74%;
+  background-color: #ec5f87;
+  opacity: 0.5;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.action form {
+  width: 100%;
+  padding: 10px;
+}
+
+.give-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.give-button {
+  display: inline-block;
+  color: white;
+  padding: 2px;
+  /* height: 20px; */
+  width: 75px;
+  background-color: #045091;
+  opacity: 0.9;
+  border: solid gray 1px;
+  border-radius: 5px;
+}
+
+.partial-amount-bar {
+  margin-top: 5px;
+}
+.partial-amount-titles {
+  text-align: center;
+}
+
+.partial-amount-input {
+  text-align: center;
+  width: 32%;
+  display: inline-block;
+}
+
+.partial-amount-input input {
+  text-align: center;
+  width: 70px;
+}
+
+.partial-amount-label {
+  width: 33%;
+  text-align: center;
+}
+
+.number {
+  text-align: center;
+}
+
+.submit-bar {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.submit-item {
+  width: 120px;
+}
+
+.reoccuring {
+  padding: 3px;
+}
+
+.checkbox {
+  display: inline-block;
+  border: solid grey 1px;
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.checked {
+  background-color: #ec5f87;
+}
+
+.go-to-payment {
+  color: white;
+  padding: 7px;
+  /* width: 100px; */
+  background-color: #045091;
+  opacity: 0.9;
+  border: solid gray 1px;
+  border-radius: 5px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.how-to-give {
+  margin-top: 40px;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.giving-type {
+  width: 30%;
+  text-align: justify;
+}
+
+.giving-header {
+  font-family: Lobster;
+  /* font-family: Dancing; */
+  color: #045091;
+}
+
+.how-to-give .row {
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .priority-content,
+  .row {
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .priority-content :nth-of-type(2) {
+    width: auto;
+  }
+
+  .display-item,
+  .giving-type {
+    width: 100%;
+  }
+
+  .display-item img {
+    height: auto;
+  }
+
+  .action {
+    width: 90vw;
+  }
+
+  .how-to-give h1 {
+    margin-bottom: 20px;
+  }
+
+  .how-to-give .row {
+    margin: auto;
+    width: 60vw;
+    margin-top: 0px;
+  }
+
+  .giving-header {
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .how-to-give .row {
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .give-button {
+    width: 50px;
+  }
+}

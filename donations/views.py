@@ -1,87 +1,86 @@
-from django.shortcuts import render, HttpResponse,redirect
+from django.shortcuts import render, HttpResponse, redirect
 from django.template.defaulttags import register
 from profiles.models import User
+from decouple import config
+import stripe
 import json
-import os
 
 @register.filter
 def get_range(value):
   return range(value)
 
 def index(request):
-  users = User.objects.all()
+  stripe.api_key = config('STRIPE_KEY')
 
-  if 'cart' in request.session:
-    print("\nCart in session")
-    # items_in_cart = json.loads(request.session['cart'])["items_in_cart"]
-    print(json.loads(request.session['cart']),"\n")
-    # request.session['cart']
-  # else:
-  #   items_in_cart = ""
-  
+  paymentIntent=stripe.PaymentIntent.create(
+    amount='0100',
+    currency='usd',
+    description = 'Initial Payment Intent',
+    payment_method_types=['card']
+  )
+
   context = {
-    'users':users,
-    # 'items_in_cart':items_in_cart
-  }
-
-  # print('\n OS Environment:',os.environ.get['TOAST'],'\n')
-  # TOASTY = os.environ.get('TOAST')
-  # print('\n Secret Key:',TOASTY,"\n")
-  return render(request,"current_priorities.html",context)
-  
-def addToCart(request):
-  
-  # Check to see if there is a cart
-  if 'cart' not in request.session:
-    items_in_cart = 0
-    current_cart = {
-      "items": [],
-      "items_in_cart":items_in_cart
+    'client_secret' : paymentIntent.client_secret
     }
-  else:
-    current_cart = json.loads(request.session['cart'])
-    items_in_cart = current_cart["items_in_cart"]
+  return render(request,"current_priorities.html",context)
 
-  new_cart_item = {
-    "cart_item_id" : items_in_cart + 1,
-    "cost_id": request.POST['cost_id'],
-    "title": request.POST['title'],
-    "description": request.POST['description'],
-    "quantity": request.POST['quantity'],
-    "full_cost": request.POST['full_cost'],
-    "partial_cost": request.POST['partial_cost'],
-    "reoccurance_date": request.POST['reoccurance_date']
+def stripeTesting(request):
+  stripe.api_key = config('STRIPE_KEY')
+  return render(request,"stripe_testing.html")
+  
+def stripePayment(request):
+  print("\n Stripe payment initiated \n")
+  stripe.api_key = config('STRIPE_KEY')
 
-    # "amount" : request.POST['donation-amount'],
-    # "remainder" : request.POST['donation-remainder'],
-    # "years": request.POST['donation-years']
-  }
+# Check to see if customer exists
 
-  print(new_cart_item)
-  current_cart["items"].append(new_cart_item)
-  current_cart["items_in_cart"] = len(current_cart["items"])
+  # customer = stripe.Customer.create(
+  #   name = request.POST['name_on_card'] ,
+  #   description = "test Customer2",
+  #   email = request.POST['email_address'],
+  #   phone = request.POST['phone_number'],
+  #   address = {
+  #     "line1" : request.POST['address_line_1'],
+  #     "line2" : request.POST['address_line_2'],
+  #     "city" : request.POST['address_city'],
+  #     "state" : request.POST['address_state'],
+  #     "postal_code" : request.POST['address_postal_code'],
+  #     "country" : 'United States'
+  #   }
+  # )
 
-  # Store Cart Data in Session
-  request.session['cart'] = json.dumps(current_cart)
-  return redirect(cart,permanent=True)
 
-def removeFromCart(request,cost_id):
-  print("\nRemove From Cart:",cost_id)
+
+  # print(PIntent.client_secret)
+  # print(stripe.Balance.retrieve())
+  # if stripe.error:
+  #   print("There is an error")
+    # print(stripe.error.message)
+  # print(stripe.error.code)
+
+  # Cust=stripe.Customer.create(
+  #   balance="0",
+  #   description="My First Test Customer (created for API docs)",)
+  # print("Customer",Cust)
+  # print(stripe.Customer.retrieve("cus_I7ouXX8a4Hr59e"))
+  
+  # Charge = stripe.Charge.create(
+  #   amount=200,
+  #   customer="cus_I7ouXX8a4Hr59e",
+  #   currency="usd",
+  #   source="tok_visa",
+  #   description="My First Test Charge (created for API docs)",)
+  # print(Charge)
+
+# Payment succeeds 4242 4242 4242 4242
+# Payment requires authentication 4000 0025 0000 3155
+# Payment is declined 4000 0000 0000 9995
+  
+  # print(stripe.Customer.list(limit=3))
+
+  # EVENTS
+  # print(stripe.Event.list(limit=100))
   return redirect(index)
-
-def emptyCart(request):
-  request.session.flush()
-  return redirect(index)
-
-def cart(request):
-  if 'cart' in request.session:
-    current_cart = json.loads(request.session['cart'])
-  else:
-    current_cart = "Your Cart is empty"
-  context = {
-    "cart": current_cart
-  }
-  return render(request,"cart.html",context)
 
 
 # Where to store Cart Data https://stackoverflow.com/questions/2827764/ecommerceshopping-cartwhere-should-i-store-shopping-cart-data-in-session-or

@@ -64,7 +64,7 @@
 }
 
 .action {
-  width: 40vw;
+  width: 45vw;
   line-height: 25px;
   margin: 50px auto 20px auto;
   -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
@@ -72,6 +72,7 @@
   box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
   border: solid 1px #ec5f87;
   border-radius: 5px;
+  /* height: 500px; */
 }
 
 .progress-bar {
@@ -271,4 +272,13 @@
   .give-button {
     width: 50px;
   }
+}
+
+#apple-pay-element {
+  -webkit-appearance: -apple-pay-button;
+  -apple-pay-button-type: plain;
+  -apple-pay-button-style: black;
+  -apple-pay-button-type: donate;
+  width: 140px;
+  height: 30px;
 }

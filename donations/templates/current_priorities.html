@@ -5,11 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Donate | Radiant Promises</title>
     {% load static %}
+
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/small_logo.jpg' %}"
+      type="image/x-icon"
+    />
+
+    <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-    <!-- <link rel="stylesheet" href="{% static 'css/navbar_grid.css' %}" /> -->
     <link rel="stylesheet" href="{% static 'css/current_priorities.css' %}" />
+
+    <!-- SCRIPTS -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{% static 'js/display.js' %}"></script>
+    <script src="{% static 'js/current_priorities.js' %}" defer></script>
+
+
+
+
+
+    <!-- <link rel="stylesheet" href="{% static 'css/stripe_global.css' %}" /> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/stripe_testing.css' %}" /> -->
+    <!-- <script src="{% static 'js/display.js' %}"></script> -->
+    <!-- <script src="{% static 'js/stripe_client.js' %}"></script> -->
   </head>
   <body>
     <nav>
@@ -48,18 +68,18 @@
       <h1>Donation Priority</h1>
       <section class="priority-display">
         <div class="priority-content">
+          <!-- <div class="display-item">
+            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
+            <h4>Dining Room</h4>
+          </div> -->
           <div class="display-item">
             <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
             <h4>Dining Room</h4>
           </div>
-          <div class="display-item">
+          <!-- <div class="display-item">
             <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
             <h4>Dining Room</h4>
-          </div>
-          <div class="display-item">
-            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
-            <h4>Dining Room</h4>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -124,7 +144,7 @@
           </div>
           <!-- Currency Data Shown https://codepen.io/559wade/pen/LRzEjj -->
 
-          <div class="submit-bar">
+          <!-- <div class="submit-bar">
             <div class="submit-item reoccuring">
               <div class="checkbox reoccuring-check"></div>
               <label>Reoccuring</label>
@@ -136,9 +156,100 @@
                 value="Go To Payment"
               />
             </div>
-          </div>
+          </div> -->
         </form>
+        <!-- <div id="apple-pay-element"></div>
+        <div id="google-pay-element"></div> -->
+        <div class="stripe_form">
+          <div id="card-element">
+            <!-- Stripe Inject -->
+          </div>
+          <button id="submit">Pay</button>
+          <!-- Display a payment form -->
+          <!-- <form id="payment-form">
+            <input type="hidden" id="client_secret" value="{{client_secret}}" />
+            <input type="text" placeholder="First Name" name="first_name" />
+            <div id="card-element"> -->
+              <!--Stripe.js injects the Card Element-->
+            <!-- </div>
+            <button id="submit">
+              <div class="spinner hidden" id="spinner"></div>
+              <span id="button-text">Pay</span>
+            </button>
+            <p id="card-error" role="alert"></p> -->
+            <!-- <p class="result-message hidden">
+              Payment succeeded, see the result in your
+              <a href="" target="_blank">Stripe dashboard.</a> Refresh the page
+              to pay again.
+            </p> -->
+          <!-- </form> -->
+        </div>
+        <!-- <div class="payments">
+          <form action="stripe" method="POST">
+            {% csrf_token %}
+
+            <h3>Amount</h3>
+            <input type="number" name="donation_amount" />
+
+            <h3>Donor Information</h3>
+            <input type="text" placeholder="Last Name" name="last_name" />
+            <input
+              type="text"
+              placeholder="Email Address"
+              name="email_address"
+            />
+            <input
+              type="number"
+              placeholder="Phone Number"
+              name="phone_number"
+            />
+
+            <h3>Billing Information</h3>
+            <h5>Address</h5>
+            <input type="text" placeholder="Line 1" name="address_line_1" />
+            <input type="text" placeholder="Line 2" name="address_line_2" />
+            <input type="text" placeholder="City" name="address_city" />
+            <input type="text" placeholder="State" name="address_state" />
+            <input type="text" placeholder="ZIP" name="address_postal_code" />
+
+            <h3>Card Information</h3>
+            <input type="text" placeholder="Name on Card" name="name_on_card" />
+            <input type="number" placeholder="Card number" name="card_number" />
+            <input
+              type="number"
+              placeholder="Expiration date"
+              name="expiration_date"
+            />
+            <input
+              type="number"
+              placeholder="Expiration year"
+              name="expiration_year"
+            />
+            <input type="number" placeholder="CVC" name="cvc_number" />
+
+            <button type="submit">Submit</button>
+          </form>
+        </div> -->
       </section>
+      <!-- <section>
+
+        
+        <form id="payment-form">
+          <div id="card-element">
+        
+          </div>
+          <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay</span>
+          </button>
+          <p id="card-error" role="alert"></p>
+          <p class="result-message hidden">
+            Payment succeeded, see the result in your
+            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to
+            pay again.
+          </p>
+        </form>
+      </section> -->
       <section class="how-to-give">
         <h1>Additional Ways to Give</h1>
         <div class="row">

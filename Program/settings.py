@@ -11,11 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-# import environ
+from decouple import config
+# PYTHON DECOUPLE: https://medium.com/@nithinkvijayan/https-medium-com-nithinkvijayan-separating-django-application-config-and-secrets-from-code-python-decouple-e0787d2bcc2a
 
-# env = environ.Env()
-# env.read_env()
-# SECRET_KEY = env('SECRET_KEY')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,12 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!bct)=iel5xyilj2u#(rgr1&utef0iyzqq$pt^deyle6mvd!ju'
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG can be True/False or 1/0
-# DEBUG = int(os.environ.get('DEBUG', default=1))
+DEBUG = config('DEBUG',default=False,cast=bool)
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -40,6 +37,7 @@ INSTALLED_APPS = [
     'donations',
     'profiles',
     'generics',
+    'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -9,9 +9,31 @@ import json
 def get_range(value):
   return range(value)
 
-def index(request):
-  stripe.api_key = config('STRIPE_KEY')
+# def index(request):
+#   stripe.api_key = config('STRIPE_KEY')
 
+#   paymentIntent=stripe.PaymentIntent.create(
+#     amount='0100',
+#     currency='usd',
+#     description = 'Initial Payment Intent',
+#     payment_method_types=['card']
+#   )
+
+#   print("\n ",paymentIntent.client_secret, "\n")
+
+#   context = {
+#     'clientSecret' : paymentIntent.client_secret
+#     }
+#   return render(request,"current_priorities.html",context)
+
+def index(request):
+  return render(request,"current_priorities.html")
+
+def stripeTesting(request):
+  stripe.api_key = config('STRIPE_KEY')
+  return render(request,"stripe_testing.html")
+
+def updatePaymentIntent(request):
   paymentIntent=stripe.PaymentIntent.create(
     amount='0100',
     currency='usd',
@@ -19,21 +41,15 @@ def index(request):
     payment_method_types=['card']
   )
 
-  print("\n ",paymentIntent.client_secret, "\n")
 
-  context = {
-    'clientSecret' : paymentIntent.client_secret
-    }
-  return render(request,"current_priorities.html",context)
-
-def stripeTesting(request):
+  updatedAmount = request.POST['amount']
+  clientSecret = request.POST['clientSecret']
   stripe.api_key = config('STRIPE_KEY')
-  return render(request,"stripe_testing.html")
+  paymentIntentID = stripe.PaymentIntent.retrieve(clientSecret).id
+  print('\n',updatedAmount,clientSecret,paymentIntentID,'\n')
+  # stripe.PaymentIntent.modify(paymentIntentID, amount=updatedAmount)
+  return HttpResponse("Payment Intent Updated" )
 
-def updatePaymentIntent(request,clientSecret):
-
-  return render(request,"current_priorities.html")
-  
 def stripePayment(request):
   print("\n Stripe payment initiated \n")
   stripe.api_key = config('STRIPE_KEY')
@@ -69,7 +85,7 @@ def stripePayment(request):
   #   description="My First Test Customer (created for API docs)",)
   # print("Customer",Cust)
   # print(stripe.Customer.retrieve("cus_I7ouXX8a4Hr59e"))
-  
+
   # Charge = stripe.Charge.create(
   #   amount=200,
   #   customer="cus_I7ouXX8a4Hr59e",
@@ -81,7 +97,7 @@ def stripePayment(request):
 # Payment succeeds 4242 4242 4242 4242
 # Payment requires authentication 4000 0025 0000 3155
 # Payment is declined 4000 0000 0000 9995
-  
+
   # print(stripe.Customer.list(limit=3))
 
   # EVENTS

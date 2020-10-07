@@ -1,29 +1,46 @@
 console.log("JS is working");
-var giveAmount
-
-
+var giveAmount;
 
 // Amount Listeners
-giveAmountDisplay = document.getElementById("giveAmount")
-give500 = document.getElementById("give500")
-give500.addEventListener("click",function(){
-  giveAmountDisplay.value = 500
-})
-  
-give250 = document.getElementById("give250")
-give250.addEventListener("click",function(){
-  giveAmountDisplay.value = 250
-})
+giveAmountDisplay = document.getElementById("giveAmount");
+give500 = document.getElementById("give500");
+give500.addEventListener("click", function () {
+  giveAmountDisplay.value = 500;
+});
 
-give100 = document.getElementById("give100")
-give100.addEventListener("click",function(){
-  giveAmountDisplay.value = 100
-})
+give250 = document.getElementById("give250");
+give250.addEventListener("click", function () {
+  giveAmountDisplay.value = 250;
+});
 
-give50 = document.getElementById("give50")
-give50.addEventListener("click",function(){
-  giveAmountDisplay.value = 50
-})
+give100 = document.getElementById("give100");
+give100.addEventListener("click", function () {
+  giveAmountDisplay.value = 100;
+});
+
+give50 = document.getElementById("give50");
+give50.addEventListener("click", function () {
+  giveAmountDisplay.value = 50;
+  updatePaymentIntent(giveAmountDisplay.value);
+});
+
+function updatePaymentIntent(amount) {
+  var clientSecret = document.getElementById("clientSecret").value;
+  const csrftoken = document.cookie.slice(10);
+
+  $.ajax({
+    url: "https://127.0.0.1:8000/donations/updatePaymentIntent",
+    method: "post",
+    headers: { "X-CSRFToken": csrftoken },
+    data: {
+      amount: amount,
+      clientSecret: clientSecret,
+    },
+    success: function (response) {
+      console.log(response);
+    },
+  });
+}
 
 // Create instance of stripe object
 var stripe = Stripe(

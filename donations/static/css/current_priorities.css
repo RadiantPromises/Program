@@ -39,7 +39,7 @@
 
 .display-item {
   padding: 10px 10px 10px 10px;
-  width: 25vw;
+  /* width: 25vw; */
   display: inline-block;
   /* border: solid blue 1px; */
 }

@@ -21,26 +21,8 @@ give100.addEventListener("click", function () {
 give50 = document.getElementById("give50");
 give50.addEventListener("click", function () {
   giveAmountDisplay.value = 50;
-  updatePaymentIntent(giveAmountDisplay.value);
 });
 
-function updatePaymentIntent(amount) {
-  var clientSecret = document.getElementById("clientSecret").value;
-  const csrftoken = document.cookie.slice(10);
-
-  $.ajax({
-    url: "https://127.0.0.1:8000/donations/updatePaymentIntent",
-    method: "post",
-    headers: { "X-CSRFToken": csrftoken },
-    data: {
-      amount: amount,
-      clientSecret: clientSecret,
-    },
-    success: function (response) {
-      console.log(response);
-    },
-  });
-}
 
 // Create instance of stripe object
 var stripe = Stripe(
@@ -61,47 +43,30 @@ card.on("change", function (event) {
   var displayError = document.getElementById("card-errors");
   if (event.error) {
     displayError.textContent = event.error.message;
-  } else {
-    displayError.textContent = "";
-  }
+  } 
 });
 
 // Form Submission
 var form = document.getElementById("payment-form");
 var clientSecret = document.getElementById("clientSecret").value;
+const csrftoken = document.cookie.slice(10);
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+  const amount = document.getElementById("giveAmount").value
 
-  stripe
-    .confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: card,
-        billing_details: {
-          name: "Another One",
-        },
-      },
-    })
-    .then(function (result) {
-      if (result.error) {
-        console.log(result.error.message);
-      } else {
-        if (result.paymentIntent.status === "succeeded") {
-          console.log("Payment ", result.paymentIntent.status);
-        }
-      }
-    });
 
   stripe.createToken(card).then(function (result) {
     if (result.error) {
       var errorElement = document.getElementById("card-error");
       errorElement.textContent = result.error.message;
     } else {
-      stripeTokenHandler(result.token);
+      stripeTokenHandler(result.token)
     }
   });
-
   console.log("Form Submitted");
 });
+
+
 
 function stripeTokenHandler(token) {
   var form = document.getElementById("payment-form");
@@ -109,5 +74,9 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute("type", "hidden");
   hiddenInput.setAttribute("name", "stripeToken");
   hiddenInput.setAttribute("value", token.id);
-  // form.submit();
+  form.appendChild(hiddenInput)
+  tokenInput = document.getElementsByName("stripeToken")
+  console.log(tokenInput)
+  form.submit();
 }
+

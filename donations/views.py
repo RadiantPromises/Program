@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.template.defaulttags import register
+from django.template import Context
 from profiles.models import User
 from decouple import config
 import stripe
@@ -12,12 +13,7 @@ def get_range(value):
 # def index(request):
 #   stripe.api_key = config('STRIPE_KEY')
 
-#   paymentIntent=stripe.PaymentIntent.create(
-#     amount='0100',
-#     currency='usd',
-#     description = 'Initial Payment Intent',
-#     payment_method_types=['card']
-#   )
+
 
 #   print("\n ",paymentIntent.client_secret, "\n")
 
@@ -34,15 +30,10 @@ def stripeTesting(request):
   return render(request,"stripe_testing.html")
 
 def updatePaymentIntent(request):
-  paymentIntent=stripe.PaymentIntent.create(
-    amount='0100',
-    currency='usd',
-    description = 'Initial Payment Intent',
-    payment_method_types=['card']
-  )
+  
 
 
-  updatedAmount = request.POST['amount']
+  
   clientSecret = request.POST['clientSecret']
   stripe.api_key = config('STRIPE_KEY')
   paymentIntentID = stripe.PaymentIntent.retrieve(clientSecret).id
@@ -50,9 +41,41 @@ def updatePaymentIntent(request):
   # stripe.PaymentIntent.modify(paymentIntentID, amount=updatedAmount)
   return HttpResponse("Payment Intent Updated" )
 
+# Process a stripe Payment (Method, Intent, Customer, Confirm)
 def stripePayment(request):
   print("\n Stripe payment initiated \n")
   stripe.api_key = config('STRIPE_KEY')
+  stripeToken = request.POST['stripeToken']
+  print("Stripe Token:",stripeToken)
+  
+  # Create Payment Method (From Token)
+  paymentMethod = stripe.PaymentMethod.create(
+    type='card',
+    card= {'token':stripeToken}
+  )
+  print('Payment Method Created', paymentMethod.id, type(paymentMethod.id))
+
+  # Create Payment Intent
+  giveAmount = request.POST['giveAmount']
+  stripeAmount = int(giveAmount)*100
+  print('Give Amount:', giveAmount,type(giveAmount), 'Stripe Amount:',stripeAmount,type(stripeAmount))
+  paymentIntent=stripe.PaymentIntent.create(
+    amount=stripeAmount,
+    currency='usd',
+    description = 'Server Payment Intent',
+    payment_method = paymentMethod.id
+  )
+  print('Payment Intent Created',paymentIntent.id)
+  print('Payment Intent amount',paymentIntent.amount)
+  print('Payment Intent method',paymentIntent.payment_method)
+
+  # Confirm Payment
+  paymentIntentConfirmation = stripe.PaymentIntent.confirm(
+    paymentIntent.id
+  )
+  print('Payment Intent Confirmed',paymentIntentConfirmation.id,paymentIntentConfirmation.status)
+
+
 
 # Check to see if customer exists
 
@@ -71,29 +94,6 @@ def stripePayment(request):
   #   }
   # )
 
-
-
-  # print(PIntent.client_secret)
-  # print(stripe.Balance.retrieve())
-  # if stripe.error:
-  #   print("There is an error")
-    # print(stripe.error.message)
-  # print(stripe.error.code)
-
-  # Cust=stripe.Customer.create(
-  #   balance="0",
-  #   description="My First Test Customer (created for API docs)",)
-  # print("Customer",Cust)
-  # print(stripe.Customer.retrieve("cus_I7ouXX8a4Hr59e"))
-
-  # Charge = stripe.Charge.create(
-  #   amount=200,
-  #   customer="cus_I7ouXX8a4Hr59e",
-  #   currency="usd",
-  #   source="tok_visa",
-  #   description="My First Test Charge (created for API docs)",)
-  # print(Charge)
-
 # Payment succeeds 4242 4242 4242 4242
 # Payment requires authentication 4000 0025 0000 3155
 # Payment is declined 4000 0000 0000 9995
@@ -102,7 +102,8 @@ def stripePayment(request):
 
   # EVENTS
   # print(stripe.Event.list(limit=100))
-  return redirect(index)
+  print('End Payment Session \n')
+  return render(request,'payment_success.html')
 
 
 # Where to store Cart Data https://stackoverflow.com/questions/2827764/ecommerceshopping-cartwhere-should-i-store-shopping-cart-data-in-session-or

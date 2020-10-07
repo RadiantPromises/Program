@@ -64,8 +64,34 @@
             <h4>Dining Room</h4>
           </div> -->
           <div class="display-item">
-            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
-            <h4>Dining Room</h4>
+            <!-- <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/D6Ac5JpCHmI?&autoplay=1"
+              frameborder="0"
+              allowfullscreen
+            ></iframe> -->
+
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/8kLvWZ-DG6s?&autoplay=1&mute=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+
+            <!-- <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/-Otg-5p7qug"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe> -->
+
+            <!-- <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
+            <h4>Dining Room</h4> -->
           </div>
           <!-- <div class="display-item">
             <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
@@ -80,20 +106,30 @@
           <div class="leftover"></div>
         </div>
         <div class="give-buttons">
-          <div class="give-button" id="give500" >$500</div>
-          <div class="give-button" id="give250" >$250</div>
-          <div class="give-button" id="give100" >$100</div>
-          <div class="give-button" id="give50" >$50</div>
+          <div class="give-button" id="give500">$500</div>
+          <div class="give-button" id="give250">$250</div>
+          <div class="give-button" id="give100">$100</div>
+          <div class="give-button" id="give50">$50</div>
         </div>
-        <div class="amount">
-          <label for="giveAmount">$</label>
-          <input type="number" id="giveAmount" placeholder="500">
-        </div>
+        <a
+          href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=3EAQNYL7VGKFC&currency_code=USD&source=url"
+          >Paypal</a
+        >
         <!-- <form action="/updatePaymentIntent" method="POST" id="payment-form"> -->
-          <form id="payment-form">
-          <input type="hidden" id="clientSecret" value={{clientSecret}}>
+        <form action="stripePayment" method="POST" id="payment-form">
+          {% csrf_token %}
+          <div class="amount">
+            <label for="giveAmount">$</label>
+            <input
+              type="number"
+              name="giveAmount"
+              id="giveAmount"
+              value="500"
+            />
+          </div>
+          <input type="hidden" id="clientSecret" value="{{clientSecret}}" />
           <div id="card-element"><!--Stripe.js injects the Card Element--></div>
-          <button id="submit">
+          <button id="payment-submit-button">
             <div class="spinner hidden" id="spinner"></div>
             <span id="button-text">Pay</span>
           </button>

@@ -21,15 +21,6 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'js/current_priorities.js' %}" defer></script>
-
-
-
-
-
-    <!-- <link rel="stylesheet" href="{% static 'css/stripe_global.css' %}" /> -->
-    <!-- <link rel="stylesheet" href="{% static 'css/stripe_testing.css' %}" /> -->
-    <!-- <script src="{% static 'js/display.js' %}"></script> -->
-    <!-- <script src="{% static 'js/stripe_client.js' %}"></script> -->
   </head>
   <body>
     <nav>
@@ -89,101 +80,53 @@
           <div class="leftover"></div>
         </div>
         <div class="give-buttons">
-          <div class="give-button">$500</div>
-          <div class="give-button">$250</div>
-          <div class="give-button">$100</div>
-          <div class="give-button">$50</div>
+          <div class="give-button" id="give500" >$500</div>
+          <div class="give-button" id="give250" >$250</div>
+          <div class="give-button" id="give100" >$100</div>
+          <div class="give-button" id="give50" >$50</div>
         </div>
-        <form action="addToCart" method="POST">
-          {% csrf_token %}
-          <div class="hidden_inputs">
-            <input type="hidden" name="cost_id" value="{{user.salary.id}}" />
-            <input type="hidden" name="title" value="{{user.title}}" />
-            <input
-              type="hidden"
-              name="description"
-              value="{{user.first_name}} {{user.last_name}}"
-            />
-            <input type="hidden" name="quantity" value="3" />
-            <input type="hidden" name="full_cost" value="10000" />
-            <input type="hidden" name="partial_cost" value="2000" />
-            <input type="hidden" name="reoccurance_date" value=2/2/2020>
-          </div>
+        <div class="amount">
+          <label for="giveAmount">$</label>
+          <input type="number" id="giveAmount" placeholder="500">
+        </div>
+        <!-- <form action="/updatePaymentIntent" method="POST" id="payment-form"> -->
+          <form id="payment-form">
+          <input type="hidden" id="clientSecret" value={{clientSecret}}>
+          <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+          <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay</span>
+          </button>
+          <p id="card-error" role="alert"></p>
+          <p class="result-message hidden">
+            Payment succeeded, see the result in your
+            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to
+            pay again.
+          </p>
+        </form>
+        <!-- <div class="stripe-form">
+          <form  id="payment-form">
+            {% csrf_token %}
+            <input type="hidden" value="{{client_secret}}">
 
-          <div class="partial-amount-bar">
-            <div class="partial-amount-titles">
-              <h4>Partial Amount</h4>
-            </div>
-            <div class="partial-amount-inputs">
-              <div class="partial-amount-input">
-                <label for="partial-amount-remainder">$</label>
-                <input
-                  name="partial-amount-remainder"
-                  type="number"
-                  placeholder="25,000"
-                />
+            <div class="partial-amount-bar">
+              <div class="partial-amount-titles">
+                <h4>Amount</h4>
               </div>
-              <div class="partial-amount-input">
-                <input
-                  name="partial-amount-percentage"
-                  type="number"
-                  placeholder="25"
-                />
-                <label for="partial-amount-percentage">%</label>
-              </div>
+
               <div class="partial-amount-input">
                 <label for="partial-amount-other">$</label>
                 <input type="number" />
               </div>
             </div>
-            <div class="partial-amount-labels flex-between">
-              <h6 class="partial-amount-label inline-block">Remainder</h6>
-              <h6 class="partial-amount-label inline-block"></h6>
-              <h6 class="partial-amount-label inline-block">Other</h6>
+            <div id="card-element">
+              Stripe Inject
             </div>
-          </div>
-          <!-- Currency Data Shown https://codepen.io/559wade/pen/LRzEjj -->
-
-          <!-- <div class="submit-bar">
-            <div class="submit-item reoccuring">
-              <div class="checkbox reoccuring-check"></div>
-              <label>Reoccuring</label>
-            </div>
-            <div class="submit-item">
-              <input
-                class="go-to-payment"
-                type="submit"
-                value="Go To Payment"
-              />
-            </div>
-          </div> -->
-        </form>
-        <!-- <div id="apple-pay-element"></div>
-        <div id="google-pay-element"></div> -->
-        <div class="stripe_form">
-          <div id="card-element">
-            <!-- Stripe Inject -->
-          </div>
+          </form>
           <button id="submit">Pay</button>
-          <!-- Display a payment form -->
-          <!-- <form id="payment-form">
-            <input type="hidden" id="client_secret" value="{{client_secret}}" />
-            <input type="text" placeholder="First Name" name="first_name" />
-            <div id="card-element"> -->
-              <!--Stripe.js injects the Card Element-->
-            <!-- </div>
-            <button id="submit">
-              <div class="spinner hidden" id="spinner"></div>
-              <span id="button-text">Pay</span>
-            </button>
-            <p id="card-error" role="alert"></p> -->
-            <!-- <p class="result-message hidden">
-              Payment succeeded, see the result in your
-              <a href="" target="_blank">Stripe dashboard.</a> Refresh the page
-              to pay again.
-            </p> -->
-          <!-- </form> -->
-        </div>
+          <p id="card-error" role="alert"></p>
+        </div> -->
+
         <!-- <div class="payments">
           <form action="stripe" method="POST">
             {% csrf_token %}
@@ -231,25 +174,6 @@
           </form>
         </div> -->
       </section>
-      <!-- <section>
-
-        
-        <form id="payment-form">
-          <div id="card-element">
-        
-          </div>
-          <button id="submit">
-            <div class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Pay</span>
-          </button>
-          <p id="card-error" role="alert"></p>
-          <p class="result-message hidden">
-            Payment succeeded, see the result in your
-            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to
-            pay again.
-          </p>
-        </form>
-      </section> -->
       <section class="how-to-give">
         <h1>Additional Ways to Give</h1>
         <div class="row">

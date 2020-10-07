@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index),
     path('stripe',views.stripePayment),
     path('stripeTesting',views.stripeTesting),
+    path('updatePaymentIntent',views.updatePaymentIntent),
 ]

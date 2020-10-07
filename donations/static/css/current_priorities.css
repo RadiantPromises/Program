@@ -282,3 +282,10 @@
   width: 140px;
   height: 30px;
 }
+
+#card-element{
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 300px;
+  margin: auto;
+}

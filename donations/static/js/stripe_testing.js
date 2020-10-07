@@ -38,6 +38,8 @@ var paymentRequest = stripe.paymentRequest({
 
 // Create instances of the Element.
 var card = elements.create("card", { style: style });
+
+
 var applePayElement = elements.create("paymentRequestButton", {
   paymentRequest: paymentRequest,
   style: {
@@ -101,7 +103,7 @@ form.addEventListener("submit", function (event) {
   stripe.createToken(card).then(function (result) {
     if (result.error) {
       // Inform the user if there was an error.
-      var errorElement = document.getElementById("card-errors");
+      var errorElement = document.getElementById("card-error");
       errorElement.textContent = result.error.message;
     } else {
       // Send the token to your server.

@@ -19,14 +19,20 @@ def index(request):
     payment_method_types=['card']
   )
 
+  print("\n ",paymentIntent.client_secret, "\n")
+
   context = {
-    'client_secret' : paymentIntent.client_secret
+    'clientSecret' : paymentIntent.client_secret
     }
   return render(request,"current_priorities.html",context)
 
 def stripeTesting(request):
   stripe.api_key = config('STRIPE_KEY')
   return render(request,"stripe_testing.html")
+
+def updatePaymentIntent(request,clientSecret):
+
+  return render(request,"current_priorities.html")
   
 def stripePayment(request):
   print("\n Stripe payment initiated \n")

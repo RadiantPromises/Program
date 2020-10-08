@@ -15,14 +15,17 @@
   src: local("Lobster"), url("../fonts/Lobster-Regular.ttf") format("truetype");
 }
 
+.hidden{
+  display: none;
+}
+
 .container {
   text-align: center;
-  padding: 5px;
+  padding: 20px 5px 5px 5px;
 }
 
 .container h1 {
   font-family: Dancing;
-  /* font-family: Lobster; */
   font-size: 40px;
   color: #ec5f87;
   border-bottom: solid gray 2px;
@@ -30,41 +33,25 @@
   margin: auto;
 }
 
-.priority-content {
-  width: auto;
-  margin-top: 35px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.display-item {
-  padding: 10px 10px 10px 10px;
-  /* width: 25vw; */
-  display: inline-block;
-  /* border: solid blue 1px; */
-}
-
-.display-item img {
-  height: 20vw;
-  width: 100%;
-  border: solid hotpink 3px;
-  margin-bottom: 10px;
-}
-
-.priority-content :nth-of-type(2) {
-  width: 40vw;
-  /* border: solid red 1px; */
-}
-
-.display-item {
+.priority-display {
+  width: 50vw;
+  height: 33vw;
+  padding: 10px 10px 7px 10px;
+  margin: auto;
+  margin-top: 40px;
   border-radius: 1vw;
   -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
   -moz-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
   box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
 }
 
+#priority-video {
+  width: 100%;
+  height: 100%;
+}
 .action {
   width: 45vw;
+  padding: 10px 0px 20px 0px;
   line-height: 25px;
   margin: 50px auto 20px auto;
   -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
@@ -72,7 +59,6 @@
   box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
   border: solid 1px #ec5f87;
   border-radius: 5px;
-  /* height: 500px; */
 }
 
 .progress-bar {
@@ -88,18 +74,27 @@
 .progress {
   display: inline-block;
   height: 100%;
-  width: 25%;
   background-color: #74d773;
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
 }
 
+.progress-number {
+  position: relative;
+  top: 21px;
+  left: -18px;
+  height: 20px;
+  width: 1px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .leftover {
   display: inline-block;
   height: 100%;
-  width: 74%;
   background-color: #ec5f87;
   opacity: 0.5;
+  color: black;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
 }
@@ -110,7 +105,7 @@
 }
 
 .give-buttons {
-  margin-top: 20px;
+  margin: 30px 0px 20px 0px;
   display: flex;
   justify-content: space-around;
 }
@@ -118,12 +113,23 @@
 .give-button {
   display: inline-block;
   color: white;
-  padding: 2px;
-  /* height: 20px; */
+  padding: 10px;
   width: 75px;
   background-color: #045091;
   opacity: 0.9;
   border: solid gray 1px;
+  border-radius: 5px;
+}
+
+.amount {
+  position: relative;
+  right: 5px;
+}
+
+#giveAmount {
+  width: 60px;
+  text-align: center;
+  border: solid 1px gray;
   border-radius: 5px;
 }
 
@@ -183,7 +189,6 @@
 .go-to-payment {
   color: white;
   padding: 7px;
-  /* width: 100px; */
   background-color: #045091;
   opacity: 0.9;
   border: solid gray 1px;
@@ -216,7 +221,6 @@
 
 .giving-header {
   font-family: Lobster;
-  /* font-family: Dancing; */
   color: #045091;
 }
 
@@ -225,27 +229,22 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .priority-content,
+  .priority-display {
+    height: 60vw;
+  }
+
+  .priority-display,
+  .action {
+    width: 90vw;
+  }
+
   .row {
     flex-direction: column;
     align-content: center;
   }
 
-  .priority-content :nth-of-type(2) {
-    width: auto;
-  }
-
-  .display-item,
   .giving-type {
     width: 100%;
-  }
-
-  .display-item img {
-    height: auto;
-  }
-
-  .action {
-    width: 90vw;
   }
 
   .how-to-give h1 {
@@ -283,9 +282,52 @@
   height: 30px;
 }
 
-#card-element{
-  margin-top: 50px;
-  margin-bottom: 20px;
+#pay-with-card {
+  margin-top: 10px;
+  width: 170px;
+  height: 32px;
+  background-color: #ec5f87;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#payment-form {
+  display: none;
+}
+
+#card-element {
+  height: 25px;
   width: 300px;
-  margin: auto;
+  padding: 5px;
+  margin: 10px auto 5px auto;
+  -moz-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+}
+
+#payment-submit-button{
+  height: 25px;
+  width: 300px;
+  background-color: #045091; opacity: 0.8;
+  color: white;
+}
+
+#powered-by-stripe{
+  color: gray;
+  font-size: 10px;
+  height: 20px;
+  padding-bottom: 5px;
+  vertical-align: top;
+}
+
+@media only screen and (max-width: 400px) {
+  #card-element,#payment-submit-button {
+    width: 70vw;
+  }
 }

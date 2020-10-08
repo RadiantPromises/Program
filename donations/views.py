@@ -23,22 +23,32 @@ def get_range(value):
 #   return render(request,"current_priorities.html",context)
 
 def index(request):
-  return render(request,"current_priorities.html")
+  stripe.api_key = config('STRIPE_KEY')
+  fundsGoal = 10000
+  fundsRaised = stripe.Balance.retrieve().pending[0].amount/100
+  # fundsRaised = 9000
+  fundsRequired = fundsGoal-fundsRaised
+  print('\n Funds Raised',fundsRaised,type(fundsRaised))
+  percentageRaised = (fundsRaised/fundsGoal)*100
+  percentageRequired = 99-percentageRaised # Leave 1 px to fit on same line
+  total = percentageRaised + percentageRequired
+  print('Percentage Raised:',percentageRaised, 'Percentage Required',percentageRequired,'Total:',total,'\n')
+
+# f"{number:,}"
+
+  context = {
+    'percentageRaised' : percentageRaised,
+    'percentageRequired' : percentageRequired,
+    'fundsRaised':  f"{fundsRaised:,}",
+    'fundsRequired':  f"{fundsRequired:,}"
+  }
+  return render(request,"current_priorities.html",context)
 
 def stripeTesting(request):
   stripe.api_key = config('STRIPE_KEY')
   return render(request,"stripe_testing.html")
 
 def updatePaymentIntent(request):
-  
-
-
-  
-  clientSecret = request.POST['clientSecret']
-  stripe.api_key = config('STRIPE_KEY')
-  paymentIntentID = stripe.PaymentIntent.retrieve(clientSecret).id
-  print('\n',updatedAmount,clientSecret,paymentIntentID,'\n')
-  # stripe.PaymentIntent.modify(paymentIntentID, amount=updatedAmount)
   return HttpResponse("Payment Intent Updated" )
 
 # Process a stripe Payment (Method, Intent, Customer, Confirm)
@@ -47,7 +57,7 @@ def stripePayment(request):
   stripe.api_key = config('STRIPE_KEY')
   stripeToken = request.POST['stripeToken']
   print("Stripe Token:",stripeToken)
-  
+
   # Create Payment Method (From Token)
   paymentMethod = stripe.PaymentMethod.create(
     type='card',

@@ -58,157 +58,69 @@
     <div class="container">
       <h1>Donation Priority</h1>
       <section class="priority-display">
-        <div class="priority-content">
-          <!-- <div class="display-item">
-            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
-            <h4>Dining Room</h4>
-          </div> -->
-          <div class="display-item">
-            <!-- <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/D6Ac5JpCHmI?&autoplay=1"
-              frameborder="0"
-              allowfullscreen
-            ></iframe> -->
-
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/8kLvWZ-DG6s?&autoplay=1&mute=1"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-
-            <!-- <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/-Otg-5p7qug"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe> -->
-
-            <!-- <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
-            <h4>Dining Room</h4> -->
-          </div>
-          <!-- <div class="display-item">
-            <img src="{% static 'img/pine-hills-dining-room.jpg' %}" alt="" />
-            <h4>Dining Room</h4>
-          </div> -->
-        </div>
+        <iframe
+          id="priority-video"
+          src="https://www.youtube.com/embed/8kLvWZ-DG6s?&autoplay=1&mute=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </section>
 
       <section class="action">
         <div class="progress-bar">
-          <div class="progress">Raised</div>
-          <div class="leftover"></div>
+          <div class="progress" style="width: {{percentageRaised}}%;">
+            Raised
+          </div>
+          <div class="progress-number">${{fundsRaised}}</div>
+          <div class="leftover" style="width: {{percentageRequired}}%;">
+            ${{fundsRequired}}
+          </div>
         </div>
         <div class="give-buttons">
-          <div class="give-button" id="give500">$500</div>
-          <div class="give-button" id="give250">$250</div>
-          <div class="give-button" id="give100">$100</div>
-          <div class="give-button" id="give50">$50</div>
+          <button class="give-button" id="give500">$500</button>
+          <button class="give-button" id="give250">$250</button>
+          <button class="give-button" id="give100">$100</button>
+          <button class="give-button" id="give50">$50</button>
         </div>
+
         <a
           href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=3EAQNYL7VGKFC&currency_code=USD&source=url"
-          >Paypal</a
-        >
-        <!-- <form action="/updatePaymentIntent" method="POST" id="payment-form"> -->
-        <form action="stripePayment" method="POST" id="payment-form">
-          {% csrf_token %}
-          <div class="amount">
-            <label for="giveAmount">$</label>
-            <input
-              type="number"
-              name="giveAmount"
-              id="giveAmount"
-              value="500"
-            />
-          </div>
-          <input type="hidden" id="clientSecret" value="{{clientSecret}}" />
-          <div id="card-element"><!--Stripe.js injects the Card Element--></div>
-          <button id="payment-submit-button">
-            <div class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Pay</span>
-          </button>
-          <p id="card-error" role="alert"></p>
-          <p class="result-message hidden">
-            Payment succeeded, see the result in your
-            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to
-            pay again.
-          </p>
-        </form>
-        <!-- <div class="stripe-form">
-          <form  id="payment-form">
+          ><img
+            src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png"
+            alt="Check out with PayPal"
+        /></a>
+        <div class="stripe-payment">
+          <button id="pay-with-card" >Pay with Card</button>
+          <!-- <form action="/updatePaymentIntent" method="POST" id="payment-form"> -->
+          <form action="stripePayment" method="POST" id="payment-form">
             {% csrf_token %}
-            <input type="hidden" value="{{client_secret}}">
-
-            <div class="partial-amount-bar">
-              <div class="partial-amount-titles">
-                <h4>Amount</h4>
-              </div>
-
-              <div class="partial-amount-input">
-                <label for="partial-amount-other">$</label>
-                <input type="number" />
-              </div>
+            <div class="amount">
+              <label for="giveAmount">$</label>
+              <input
+                type="number"
+                name="giveAmount"
+                id="giveAmount"
+                value="500"
+              />
             </div>
+            <input type="hidden" id="clientSecret" value="{{clientSecret}}" />
             <div id="card-element">
-              Stripe Inject
+              <!--Stripe.js injects the Card Element-->
             </div>
+            <button id="payment-submit-button">
+              <div class="spinner hidden" id="spinner"></div>
+              <span id="button-text">Pay</span>
+            </button>
+            <div id="powered-by-stripe">Powered by Stripe: A secure PCI compliant Payment Provider</div>
+            <p id="card-error" role="alert"></p>
+            <p class="result-message hidden">
+              Payment succeeded, see the result in your
+              <a href="" target="_blank">Stripe dashboard.</a> Refresh the page
+              to pay again.
+            </p>
           </form>
-          <button id="submit">Pay</button>
-          <p id="card-error" role="alert"></p>
-        </div> -->
-
-        <!-- <div class="payments">
-          <form action="stripe" method="POST">
-            {% csrf_token %}
-
-            <h3>Amount</h3>
-            <input type="number" name="donation_amount" />
-
-            <h3>Donor Information</h3>
-            <input type="text" placeholder="Last Name" name="last_name" />
-            <input
-              type="text"
-              placeholder="Email Address"
-              name="email_address"
-            />
-            <input
-              type="number"
-              placeholder="Phone Number"
-              name="phone_number"
-            />
-
-            <h3>Billing Information</h3>
-            <h5>Address</h5>
-            <input type="text" placeholder="Line 1" name="address_line_1" />
-            <input type="text" placeholder="Line 2" name="address_line_2" />
-            <input type="text" placeholder="City" name="address_city" />
-            <input type="text" placeholder="State" name="address_state" />
-            <input type="text" placeholder="ZIP" name="address_postal_code" />
-
-            <h3>Card Information</h3>
-            <input type="text" placeholder="Name on Card" name="name_on_card" />
-            <input type="number" placeholder="Card number" name="card_number" />
-            <input
-              type="number"
-              placeholder="Expiration date"
-              name="expiration_date"
-            />
-            <input
-              type="number"
-              placeholder="Expiration year"
-              name="expiration_year"
-            />
-            <input type="number" placeholder="CVC" name="cvc_number" />
-
-            <button type="submit">Submit</button>
-          </form>
-        </div> -->
+        </div>
       </section>
       <section class="how-to-give">
         <h1>Additional Ways to Give</h1>

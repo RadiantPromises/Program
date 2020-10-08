@@ -1,7 +1,19 @@
 console.log("JS is working");
-var giveAmount;
+
+// Button Listeners
+
+$("#pay-with-card").click(function(event){
+  console.log('You Clicked Me!')
+  $("#payment-form").css("display", "inline-block");
+})
+
+document.getElementById("pay-with-card").addEventListener("click",function(){
+  
+});
+
 
 // Amount Listeners
+var giveAmount;
 giveAmountDisplay = document.getElementById("giveAmount");
 give500 = document.getElementById("give500");
 give500.addEventListener("click", function () {

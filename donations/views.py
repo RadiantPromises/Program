@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.template.defaulttags import register
 from django.template import Context
 from profiles.models import User
+from twilio.rest import Client
 from decouple import config
 import stripe
 import json
@@ -9,18 +10,6 @@ import json
 @register.filter
 def get_range(value):
   return range(value)
-
-# def index(request):
-#   stripe.api_key = config('STRIPE_KEY')
-
-
-
-#   print("\n ",paymentIntent.client_secret, "\n")
-
-#   context = {
-#     'clientSecret' : paymentIntent.client_secret
-#     }
-#   return render(request,"current_priorities.html",context)
 
 def index(request):
   stripe.api_key = config('STRIPE_KEY')
@@ -34,7 +23,7 @@ def index(request):
   total = percentageRaised + percentageRequired
   print('Percentage Raised:',percentageRaised, 'Percentage Required',percentageRequired,'Total:',total,'\n')
 
-# f"{number:,}"
+
 
   context = {
     'percentageRaised' : percentageRaised,
@@ -86,34 +75,26 @@ def stripePayment(request):
   print('Payment Intent Confirmed',paymentIntentConfirmation.id,paymentIntentConfirmation.status)
 
 
-
-# Check to see if customer exists
-
-  # customer = stripe.Customer.create(
-  #   name = request.POST['name_on_card'] ,
-  #   description = "test Customer2",
-  #   email = request.POST['email_address'],
-  #   phone = request.POST['phone_number'],
-  #   address = {
-  #     "line1" : request.POST['address_line_1'],
-  #     "line2" : request.POST['address_line_2'],
-  #     "city" : request.POST['address_city'],
-  #     "state" : request.POST['address_state'],
-  #     "postal_code" : request.POST['address_postal_code'],
-  #     "country" : 'United States'
-  #   }
-  # )
-
-# Payment succeeds 4242 4242 4242 4242
-# Payment requires authentication 4000 0025 0000 3155
-# Payment is declined 4000 0000 0000 9995
-
-  # print(stripe.Customer.list(limit=3))
-
-  # EVENTS
-  # print(stripe.Event.list(limit=100))
   print('End Payment Session \n')
   return render(request,'payment_success.html')
 
 
 # Where to store Cart Data https://stackoverflow.com/questions/2827764/ecommerceshopping-cartwhere-should-i-store-shopping-cart-data-in-session-or
+
+def texts(request):
+  return render(request,'twilio.html')
+
+def sendMessage(request):
+  account_sid = config('TWILIO_SID')
+  auth_token = config('TWILIO_AUTH')
+  print('Account SID',account_sid,'Auth Token',auth_token)
+  
+  client=Client(account_sid,auth_token)
+  message = client.messages.create(
+    to="+17605323540",
+    from_='+12544555888',
+    # body="Hello from Python!"
+    body="Thank you for choosing to \n donate and free our youth \n from this horrible injustice. \n \n Please complete your donation \n by clicking on the link below. \n \n http://54.183.183.188/donations/ \n \n Reply STOP to be \n unsubscribed "
+  )
+  print('\n Message sent')
+  return redirect(texts)

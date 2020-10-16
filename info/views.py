@@ -8,3 +8,12 @@ def home(request):
 
 def about(request):
   return render(request,'about.html')
+
+def our_target(request):
+  return render(request,'our_target.html')
+
+def events(request):
+  return render(request,'events.html')
+
+def contact(request):
+  return HttpResponse('Contact')

@@ -14,8 +14,8 @@ def get_range(value):
 def index(request):
   stripe.api_key = config('STRIPE_KEY')
   fundsGoal = 10000
-  fundsRaised = stripe.Balance.retrieve().pending[0].amount/100
-  # fundsRaised = 9000
+  # fundsRaised = stripe.Balance.retrieve().pending[0].amount/100
+  fundsRaised = 9000
   fundsRequired = fundsGoal-fundsRaised
   print('\n Funds Raised',fundsRaised,type(fundsRaised))
   percentageRaised = (fundsRaised/fundsGoal)*100

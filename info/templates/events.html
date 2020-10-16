@@ -13,10 +13,8 @@
     />
 
     <!-- STYLE SHEETS -->
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
-
-    <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/about.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
 
     <!-- SCRIPTS -->
     <script src="https://js.stripe.com/v3/"></script>
@@ -58,7 +56,7 @@
       </div>
     </nav>
     <div class="container">
-      <section class="banner top-banner">
+      <section class="banner">
         <h1>About</h1>
       </section>
       <section class="story">
@@ -148,17 +146,12 @@
           </p>
         </div>
         <div class="pic">
-          <!-- <img
+          <img
             src="https://static.wixstatic.com/media/2363b3_92d1487252364616818e2bde8a56a45c~mv2_d_7952_5304_s_4_2.jpg/v1/fill/w_1764,h_1110,al_c,q_85,usm_0.66_1.00_0.01/2363b3_92d1487252364616818e2bde8a56a45c~mv2_d_7952_5304_s_4_2.webp"
             alt=""
-          /> -->
+          />
         </div>
       </section>
-      <section class="banner">
-        <div class="bottom-banner">{% include "bottom_banner.html" %}</div>
-      </section>
-      <section>{% include "quicklinks.html" %}</section>
-      <footer>{% include "footer.html" %}</footer>
     </div>
   </body>
 </html>

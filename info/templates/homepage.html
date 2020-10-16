@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+/<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,43 +6,20 @@
     <title>Home | Radiant Promises</title>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'homepage.css' %}" />
+
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/small_logo.jpg' %}"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+
+    <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}" /> -->
   </head>
   <body>
-    <nav>
-      <div class="nav-left">
-        <div class="logo">
-          <img src="" alt="Logo" />
-        </div>
-        <div class="slogan">
-          <h3>Radiant Promises</h3>
-          <p>Help Every Child's Light Shine!</p>
-        </div>
-      </div>
-      <div class="nav-center">
-        <div class="nav-link">
-          <a href="">Home</a>
-        </div>
-        <div class="nav-link">
-          <a href="">About</a>
-        </div>
-        <div class="nav-link">
-          <a href="">Our Target</a>
-        </div>
-        <div class="nav-link">
-          <a href="">Support Us</a>
-        </div>
-        <div class="nav-link">
-          <a href="">Events</a>
-        </div>
-        <div class="nav-link">
-          <a href="">Contact</a>
-        </div>
-      </div>
-      <div class="nav-right">
-        <button class="donate">Donate</button>
-      </div>
-    </nav>
+    <nav>{% include "navbar.html" %}</nav>
     <div class="container">
       <div class="jumbotron">
         <img
@@ -103,26 +80,14 @@
           <button>Donate Now</button>
         </div>
         <div class="join-right">
-          <img src="https://static.wixstatic.com/media/84770f_6d8f65290fd8480282082b66ac697efa~mv2_d_8688_5792_s_4_2.jpeg/v1/fill/w_586,h_525,al_c,q_80,usm_0.66_1.00_0.01/84770f_6d8f65290fd8480282082b66ac697efa~mv2_d_8688_5792_s_4_2.webp" alt="">
+          <img
+            src="https://static.wixstatic.com/media/84770f_6d8f65290fd8480282082b66ac697efa~mv2_d_8688_5792_s_4_2.jpeg/v1/fill/w_586,h_525,al_c,q_80,usm_0.66_1.00_0.01/84770f_6d8f65290fd8480282082b66ac697efa~mv2_d_8688_5792_s_4_2.webp"
+            alt=""
+          />
         </div>
       </section>
-      <section class="bottom-info">
-        <div class="promises">
-          <h4>Radiant Promises</h4>
-          <p>Radiant Promises is a non-profit  organization designed to circumvent homelessness and hopelessness in
-
-            at-risk youth. The program provides housing and empowering education for young adults ages 18-24 who have aged out of the foster care system and youth who have been rescued from sex-trafficking in need of both a home, healing and a fresh new start in life.</p>
-        </div>
-        <div class="updates">
-          <h4>Get Monthly Updates</h4>
-        </div>
-        <div class="links">
-          <h4>Quick Links</h4>
-        </div>
-      </section>
-      <footer>
-        <p class="centerText">2023 by Radiant Promises, Inc.</p>
-      </footer>
+      <section>{% include "quicklinks.html" %}</section>
+      <footer>{% include "footer.html" %}</footer>
     </div>
   </body>
 </html>

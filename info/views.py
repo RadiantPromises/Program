@@ -3,17 +3,35 @@ from django.shortcuts import render, HttpResponse
 def index(request):
   return HttpResponse('Hello!')
 
+def navbar(request):
+  return render(request,'navbar.html')
+
 def home(request):
-  return render(request,'homepage.html')
+  context = {
+    'page': 'home'
+  }
+  return render(request,'homepage.html',context)
 
 def about(request):
-  return render(request,'about.html')
+  context = {
+    'page': 'about'
+  }
+  return render(request,'about.html',context)
 
 def our_target(request):
-  return render(request,'our_target.html')
+  context = {
+    'page': 'our_target'
+  }
+  return render(request,'our_target.html',context)
 
 def events(request):
-  return render(request,'events.html')
+  context = {
+    'page': 'events'
+  }
+  return render(request,'events.html',context)
 
 def contact(request):
-  return HttpResponse('Contact')
+  context = {
+    'page': 'contact'
+  }
+  return HttpResponse('Contact',context)

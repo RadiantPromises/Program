@@ -21,9 +21,14 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'js/current_priorities.js' %}" defer></script>
+
+    <!-- Current Page Reference -->
+    <script src="{% static 'js/global.js' %}"></script>
+    <input id="Page" type="hidden" value="{{page}}" />
   </head>
   <body>
-    <nav>
+    <nav>{% include "navbar.html" %}</nav>
+    <!-- <nav>
       <div class="nav-items">
         <div class="nav-left">
           <img
@@ -48,13 +53,9 @@
           <div class="menu-toggle">&#9776;</div>
         </div>
         <div class="nav-right">
-          <!-- <a class="cart-button" href="/donations/cart"
-            >Cart {{items_in_cart}}</a
-          > -->
-          <!-- <button class="cart">Cart</button> -->
         </div>
       </div>
-    </nav>
+    </nav> -->
     <div class="container">
       <h1>Radiant Promises</h1>
       <section class="priority-display">

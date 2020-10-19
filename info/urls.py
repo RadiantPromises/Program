@@ -8,4 +8,5 @@ urlpatterns = [
     path('our_target',views.our_target),
     path('events',views.events),
     path('contact',views.contact),
+    path('navbar',views.navbar),
 ]

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   {% load static %}
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 </head>
 <body>
   <div class="nav-items">
@@ -12,26 +13,23 @@
         alt=""
       />
       <div class="slogan">
-        <h4>Radiant Promises</h4>
-        <h6>Help Every Child's Light Shine!</h6>
+        <div id="slogan-title">Radiant Promises</div>
+        <div id="slogan-text">Help Every Child's Light Shine!</div>
       </div>
     </div>
     <div class="nav-center">
       <div class="nav-links">
-        <a class="nav-link current-page" href="/">Home</a>
-        <a class="nav-link" href="/about">About</a>
-        <a class="nav-link" href="/our_target">Our Target</a>
-        <a class="nav-link" href="/support">Support Us</a>
-        <a class="nav-link" href="/events">Events</a>
-        <a class="nav-link" href="/contact">Contact</a>
+        <a class="nav-link" id="home" href="/">Home</a>
+        <a class="nav-link" id="about" href="/about">About</a>
+        <a class="nav-link" id="our_target" href="/our_target">Our Target</a>
+        <a class="nav-link" id="donations" href="/donations">Support Us</a>
+        <a class="nav-link" id="events" href="/events">Events</a>
+        <a class="nav-link" id="contact" href="/contact">Contact</a>
       </div>
       <div class="menu-toggle">&#9776;</div>
     </div>
     <div class="nav-right">
-      <!-- <a class="cart-button" href="/donations/cart"
-        >Cart {{items_in_cart}}</a
-      > -->
-      <!-- <button class="cart">Cart</button> -->
+      <button id="donate-button">Donate</button>
     </div>
   </div>
 </body>

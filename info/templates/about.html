@@ -26,13 +26,15 @@
   </head>
   <body>
     <nav>
-      <nav>{% include "navbar.html" %}</nav>
+      <nav>{% include "components/navbar.html" %}</nav>
     </nav>
     <div class="container">
-      <section class="banner top-banner">
+       <section class="banner top-banner">
         <h1>About</h1>
       </section>
-      <section class="story">
+      <br>
+      
+      <!--<section class="story">
         <h4>FLEEING THE DARKNESS</h4>
         <br />
         <p>
@@ -119,17 +121,14 @@
           </p>
         </div>
         <div class="pic">
-          <!-- <img
-            src="https://static.wixstatic.com/media/2363b3_92d1487252364616818e2bde8a56a45c~mv2_d_7952_5304_s_4_2.jpg/v1/fill/w_1764,h_1110,al_c,q_85,usm_0.66_1.00_0.01/2363b3_92d1487252364616818e2bde8a56a45c~mv2_d_7952_5304_s_4_2.webp"
-            alt=""
-          /> -->
+
         </div>
-      </section>
+      </section> -->
       <section class="banner">
-        <div class="bottom-banner">{% include "bottom_banner.html" %}</div>
+        <div class="bottom-banner">{% include "components/bottom_banner.html" %}</div>
       </section>
-      <section>{% include "quicklinks.html" %}</section>
-      <footer>{% include "footer.html" %}</footer>
+      <section>{% include "components/quicklinks.html" %}</section>
+      <footer>{% include "components/footer.html" %}</footer>
     </div>
   </body>
 </html>

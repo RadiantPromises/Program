@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donate | Radiant Promises</title>
+    <title>Events | Radiant Promises</title>
     {% load static %}
 
     <link
@@ -15,143 +15,34 @@
     <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
     <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
     <!-- SCRIPTS -->
     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'js/current_priorities.js' %}" defer></script>
+
+    <!-- Current Page Reference -->
+    <script src="{% static 'js/global.js' %}"></script>
+    <input id="Page" type="hidden" value="{{page}}" />
   </head>
   <body>
     <nav>
-      <div class="nav-items">
-        <div class="nav-left">
-          <img
-            class="small-logo"
-            src="{% static 'img/small_logo.jpg' %}"
-            alt=""
-          />
-          <div class="slogan">
-            <h4>Radiant Promises</h4>
-            <h6>Help Every Child's Light Shine!</h6>
-          </div>
-        </div>
-        <div class="nav-center">
-          <div class="nav-links">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link current-page" href="">About</a>
-            <a class="nav-link" href="/our_target">Our Target</a>
-            <a class="nav-link" href="/support">Support Us</a>
-            <a class="nav-link" href="/events">Events</a>
-            <a class="nav-link" href="/contact">Contact</a>
-          </div>
-          <div class="menu-toggle">&#9776;</div>
-        </div>
-        <div class="nav-right">
-          <!-- <a class="cart-button" href="/donations/cart"
-            >Cart {{items_in_cart}}</a
-          > -->
-          <!-- <button class="cart">Cart</button> -->
-        </div>
-      </div>
+      <nav>{% include "components/navbar.html" %}</nav>
     </nav>
     <div class="container">
+      <section class="banner top-banner">
+        <h1>Contact</h1>
+      </section>
+<br>
       <section class="banner">
-        <h1>About</h1>
-      </section>
-      <section class="story">
-        <h4>FLEEING THE DARKNESS</h4>
-        <br />
-        <p>
-          Radiant Promises is a project to help circumvent homelessness and
-          hopelessness ages 18-24 at-risk teens and young adults who have aged
-          out of the Foster Care System and those that have been rescued from
-          the sex-trafficked industry.
-        </p>
-        <br />
-        <p>
-          The Radiant Promises project is founded by its CEO, Dolly Chacon, a
-          Business Administrator, a retired Pastor, a Certified Master Life
-          Coach, Marriage Coach, Mental Health Wellness Coach, Motivational
-          Speaker, Talk Show Host and a Spiritual Mom to teens and young adults.
-          The Radiant Promises project was launched by Dolly’s overwhelming
-          gut-wrenching concern of a dream she had about a black cloud hovering
-          over one side of a street miles long. Dolly said, "I saw thousands of
-          children with fear and pain on their faces running for their lives out
-          of this dark cloud into the light across the street. The light
-          engulfed thousands of family-oriented people with smiles and open arms
-          of love waiting to embrace these children. I immediately realized no
-          matter how many teens and young adults I life coached, more
-          importantly, they needed nurturing and housing stability to help
-          circumvent the fear of abuse and homelessness." Dolly states, "our
-          youth cannot be left to the dark, loveless and lifeless streets. It's
-          a crime here in America to do so."
-        </p>
-        <br />
-        <p>
-          The Radiant Promises project has five components: transitional
-          residences, educational, work readiness and moral values and youth
-          wellness services. We provide an honorable family environment to
-          homeless youth ages 18-24. Some have aged-out of the Foster Care
-          program and have been sexually abused or rescued from sex-trafficking,
-          situations with no safe home to return to.
-        </p>
-        <br />
-        <p>
-          Every night thousands of teens have no bed to curl up in, in a safe
-          and caring home. Many are forced to the streets and are forced into
-          prostitution, gangs, alcoholism, drugs, and crimes. Many are
-          sex-trafficked in order to find a place to lay their heads while in
-          constant fear of continued abuse. These young people need a safe
-          caring environment to transition and learn constructive healthy and
-          productive ways to live their adult lifestyle. We are those who
-          sincerely care about their welfare and offer the tools to help them
-          transition through to a new day, a new life, full of hope. Too many of
-          our young people are poor, vulnerable, hopeless and hurting with no
-          moral or spiritual support. Many become suicidal and we are committed
-          to providing spiritually centered, holistic care which sustains and
-          improves mental, emotional and spiritual well-being after they found
-          themselves once again abandoned by the Foster Care system, the
-          government with no supportive family.
-        </p>
-        <br />
-        <p>
-          The Radiant Promises project is a mix of successful entrepreneurs,
-          businessmen and women, spiritual counselors and concerned community
-          members who have united for a common vision for social change for
-          those who are at risk of homelessness. The union of the Radiant
-          Promises’ Team, the Business Model, the Partners, and Organizations
-          will result in a full-service protocol that is intended to help
-          improve the future of emancipated foster care and/or sex-trafficked
-          young people. We proclaim, they are "Victims No More, but a Shining
-          Light in the World!"
-        </p>
-      </section>
-      <section class="we-believe">
-        <h1>
-          We believe every child is a gift from God and we embrace how special
-          they are, helping them define their future, to grow and create
-          beautiful changes in the world.
-        </h1>
-      </section>
-      <section class="our-mission">
-        <div class="text">
-          <h2>Our Mission</h2>
-          <p>
-            To enhance lives through a 6-12 month transitional housing,
-            sobriety, and higher education program customized to meet the needs
-            of each at-risk homeless person ages 18-24 who have aged-out of
-            foster care and those who have been rescued from sex-trafficking.
-            Our greatest American Asset is our Children!
-          </p>
-        </div>
-        <div class="pic">
-          <img
-            src="https://static.wixstatic.com/media/2363b3_92d1487252364616818e2bde8a56a45c~mv2_d_7952_5304_s_4_2.jpg/v1/fill/w_1764,h_1110,al_c,q_85,usm_0.66_1.00_0.01/2363b3_92d1487252364616818e2bde8a56a45c~mv2_d_7952_5304_s_4_2.webp"
-            alt=""
-          />
+        <div class="bottom-banner">
+          {% include "components/bottom_banner.html" %}
         </div>
       </section>
+      <section>{% include "components/quicklinks.html" %}</section>
+      <footer>{% include "components/footer.html" %}</footer>
     </div>
   </body>
 </html>

@@ -1,9 +1,3 @@
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: Poppins-EL;
   src: local("Poppins-EL"),

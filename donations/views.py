@@ -26,13 +26,13 @@ def index(request):
 
 
   context = {
-    'page': "donations",
+    'page': "support",
     'percentageRaised' : percentageRaised,
     'percentageRequired' : percentageRequired,
     'fundsRaised':  f"{fundsRaised:,}",
     'fundsRequired':  f"{fundsRequired:,}"
   }
-  return render(request,"current_priorities.html",context)
+  return render(request,"support.html",context)
 
 def stripeTesting(request):
   stripe.api_key = config('STRIPE_KEY')

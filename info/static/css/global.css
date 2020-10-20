@@ -2,15 +2,22 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container, nav{
+  min-width: 1050px;
 }
 
 /* FONTS */
 @font-face {
   font-family: Avenir;
-  src: local("Avenir"),
-    url("../fonts/Avenir.ttc") format("truetype");
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
 }
-
 
 /*    Replacement for Avenir */
 @font-face {
@@ -41,6 +48,10 @@
   font-weight: 900;
 }
 
+.centerText{
+  text-align: center;
+}
+
 /* HTML TAGS */
 
 button {
@@ -50,41 +61,66 @@ button {
   padding: 10px;
 }
 
-h1{
+h1 {
   font-size: 70px;
+  font-family: Poppins-SB;
 }
 
-h3{
+h2 {
+  font-size: 40px;
+  font-family: Poppins-SB;
+}
+
+h3 {
   font-size: 34px;
+  font-family: Avenir;
+}
+
+h4 {
+  font-size: 30px;
+  font-family: Poppins-SB;
+}
+
+h5 {
+  font-size: 28px;
+  font-family: Poppins-SB;
 }
 
 h6 {
   font-size: 20px;
+  font-family: Poppins-SB;
 }
 
 /* BANNERS */
-.banner{
+.banner {
   color: white;
-  background-color: #223D8C;
-  text-align: center;
+  background-color: #223d8c;
 }
 
+
+
 /*  - Top Banner */
-.top-banner{
+.top-banner {
   height: 200px;
   font-family: Poppins-SB;
   padding: 50px;
 }
 
+/*   - Action Banner */
+.action-text{
+  font-size: 18px;
+  font-family: Avenir;
+}
+
 /*  - Bottom Banner */
-.bottom-banner{
+.bottom-banner {
   font-family: Avenir;
   width: 685px;
   margin: auto;
   padding: 42px 20px 20px 20px;
 }
 
-#bottom-banner-button{
+#bottom-banner-button {
   margin-top: 22px;
   color: black;
   background-color: white;
@@ -93,11 +129,15 @@ h6 {
   font-size: 16px;
 }
 
-
-
 /* QUICK LINKS FOOTER */
-.quick-links{
-padding: 0px 80px 0px 80px;
+
+.quick-links *{
+  text-align: left;
+}
+.quick-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 80px 0px 80px;
 }
 
 .quick-links-item {
@@ -105,6 +145,10 @@ padding: 0px 80px 0px 80px;
   width: 33%;
   vertical-align: top;
   padding: 20px;
+}
+
+.quick-links-item *{
+  text-align: left;
 }
 
 .quick-links h6 {
@@ -119,7 +163,7 @@ padding: 0px 80px 0px 80px;
   margin-bottom: 19px;
 }
 
-.description p{
+.description p {
   line-height: 25.5px;
 }
 
@@ -140,11 +184,12 @@ padding: 0px 80px 0px 80px;
   margin-bottom: 20px;
 }
 
-.subscribe button{
+.subscribe button {
   height: 40px;
   font-size: 16px;
   font-family: Poppins-EL;
   font-weight: 700;
+  text-align: center;
 }
 
 .links {

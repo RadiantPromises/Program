@@ -2,7 +2,6 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  text-align: center;
 }
 
 a{
@@ -10,7 +9,7 @@ a{
 }
 
 .container, nav{
-  min-width: 1050px;
+  min-width: 1260px;
 }
 
 /* FONTS */
@@ -99,6 +98,7 @@ h6 {
 .banner {
   color: white;
   background-color: #223d8c;
+  text-align: center;
 }
 
 

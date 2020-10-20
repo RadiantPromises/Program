@@ -14,28 +14,29 @@
 
     <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
 
     <!-- SCRIPTS -->
     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'js/current_priorities.js' %}" defer></script>
-    
+
     <!-- Current Page Reference -->
     <script src="{% static 'js/global.js' %}"></script>
-    <input id="Page" type="hidden" value={{page}}>
+    <input id="Page" type="hidden" value="{{page}}" />
   </head>
   <body>
     <nav>
       <nav>{% include "components/navbar.html" %}</nav>
     </nav>
     <div class="container">
-       <section class="banner top-banner">
+      <section class="banner top-banner">
         <h1>About</h1>
       </section>
-      <br>
-      
-      <!--<section class="story">
-        <h4>FLEEING THE DARKNESS</h4>
+      <br />
+
+      <section class="story">
+        <p>FLEEING THE DARKNESS</p>
         <br />
         <p>
           Radiant Promises is a project to help circumvent homelessness and
@@ -102,12 +103,12 @@
           Light in the World!"
         </p>
       </section>
-      <section class="we-believe">
-        <h1>
+      <section class="banner pink">
+        <h3 class="we-believe">
           We believe every child is a gift from God and we embrace how special
           they are, helping them define their future, to grow and create
           beautiful changes in the world.
-        </h1>
+        </h3>
       </section>
       <section class="our-mission">
         <div class="text">
@@ -117,15 +118,37 @@
             sobriety, and higher education program customized to meet the needs
             of each at-risk homeless person ages 18-24 who have aged-out of
             foster care and those who have been rescued from sex-trafficking.
-            Our greatest American Asset is our Children!
           </p>
+          <p>Our greatest American Asset is our Children!</p>
         </div>
         <div class="pic">
-
+          <img src="{% static 'img/Trio.jpg' %}" alt="" />
         </div>
-      </section> -->
+      </section>
+      <section class="founder">
+        <div class="pic">
+          <img src="{% static 'img/Dolly.jpg' %}" alt="" />
+        </div>
+        <div class="text">
+          <h2>Our Founder & Visionary</h2>
+          <p>
+            Hi, I'm Dolly Chacon, Founder and CEO of Radiant Promises and a
+            Life, Marriage and Mental Health Coach. We envision a multicultural
+            world where child abuse and abandonment are abolished. You can help
+            our youth today to believe and understand how precious, cherished,
+            loved and honored by stepping up to the challenge with us as a
+            volunteer, monthly partner, sponsor and/or an investor. Our focus is
+            on helping to restore wholeness to our youth. Our children need you
+            to help them be a shining light in the world. It's love that will
+            make America beautiful, healthy and strong!
+          </p>
+          <p>Thank you for your generous donations!</p>
+        </div>
+      </section>
       <section class="banner">
-        <div class="bottom-banner">{% include "components/bottom_banner.html" %}</div>
+        <div class="bottom-banner">
+          {% include "components/bottom_banner.html" %}
+        </div>
       </section>
       <section>{% include "components/quicklinks.html" %}</section>
       <footer>{% include "components/footer.html" %}</footer>

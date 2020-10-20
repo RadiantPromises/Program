@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
+}
+
+/* Top Quote */
+.quote{
+  width: 60%;
+  text-align: center;
+  margin: 20px auto 20px auto;
+}
+
+.quote span{
+  font-family: Avenir;
+  font-size: 15px;
+}

@@ -14,9 +14,7 @@
 
     <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
-
-    <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/about.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'css/our_target.css' %}" />
 
     <!-- SCRIPTS -->
     <script src="https://js.stripe.com/v3/"></script>
@@ -36,9 +34,17 @@
       <section class="banner top-banner">
         <h1>The At-Risk Youth Crisis</h1>
       </section>
-      <br>
+      <section class="quote">
+        <h4>
+          The only thing necessary for the triumph of evil is that good men do
+          nothing.
+        <span>Edmund Burke</span>
+        </h4>
+      </section>
       <section class="banner">
-        <div class="bottom-banner">{% include "components/bottom_banner.html" %}</div>
+        <div class="bottom-banner">
+          {% include "components/bottom_banner.html" %}
+        </div>
       </section>
       <section>{% include "components/quicklinks.html" %}</section>
       <footer>{% include "components/footer.html" %}</footer>

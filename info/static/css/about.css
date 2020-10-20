@@ -1,82 +1,59 @@
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-.container{
-  text-align: center;
-}
-
 @font-face {
-  font-family: Poppins;
-  src: local("Poppins"),
-    url("../fonts/Poppins-Regular.ttf") format("truetype");
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
 }
 
-@font-face {
-  font-family: Raleway;
-  src: local("Raleway"),
-    url("../fonts/Raleway-ExtraLight.ttf") format("truetype");
+p {
+  font-size: 18px;
+  font-family: Avenir;
 }
 
-@font-face {
-  font-family: Raleway-light-italic;
-  src: local("Raleway-light-italic"),
-    url("../fonts/Raleway-LightItalic.ttf") format("truetype");
-}
-
-
-.banner{
-  /* height: 200px; */
-  background-color: #045091;
-  color: white;
-  text-align: center;
-  font-size: 40px;
-  font-family: Poppins;
-  padding: 50px;
-}
-
-.story{
+/* Fleeing From Darkness Story */
+.story {
+  width: 85%;
+  margin: 20px auto 20px auto;
   text-align: left;
-  width: 50vw;
-  margin: 50px auto 0px auto;
-  font-family: Raleway;
 }
 
-.we-believe{
-  background-color: #ec5f87;
-  padding: 40px;
-  color: white;
-  margin-top: 50px;
-}
-
-.we-believe h1{
-  font-family: Raleway-light-italic;
-  width: 60vw;
-  margin: auto;
-}
-
+/* We Believe Banner */
 .our-mission{
-  font-family: Poppins;
+  font-size: 0px;
+}
+.pink {
+  background-color: #ec5e86;
+  padding: 50px 10px 50px 10px;
+}
+
+.we-believe {
+  margin: auto;
+  font-style: italic;
+}
+
+/* Our Mission */
+.our-mission, .founder{
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+}
+
+.text,
+.pic {
   display: inline-block;
+  text-align: center;
   width: 50%;
+  min-width: 630px;
+}
+
+.text{
+  padding: 40px;
 }
 
 .text h2{
-  font-size: 40px;
-  font-weight: bold;
+  margin-top: 115px;
+  margin-bottom: 20px;
 }
 
-.text p{
-  font-family: Raleway;
-  font-size: 18px;
-}
 
-.pic{
-  display: inline-block;
-  width: 50%;
-}
-
-.pic img{
-  width: 537px;
+.pic img {
+  width: 100%;
 }

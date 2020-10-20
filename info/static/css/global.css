@@ -48,6 +48,10 @@ a{
   font-weight: 900;
 }
 
+.notBold{
+  font-weight: 400;
+}
+
 .centerText{
   text-align: center;
 }
@@ -134,15 +138,24 @@ h6 {
 .quick-links *{
   text-align: left;
 }
+
 .quick-links {
   display: flex;
   justify-content: space-between;
   padding: 0px 80px 0px 80px;
 }
 
+.quick-links ul{
+  list-style: none;
+}
+
+.quick-links p, .quick-links span, .quick-links a{
+  font-family: Avenir;
+  font-size: 15px;
+}
+
 .quick-links-item {
   display: inline-block;
-  width: 33%;
   vertical-align: top;
   padding: 20px;
 }
@@ -156,7 +169,7 @@ h6 {
 }
 
 .description {
-  width: 285px;
+  width: 342px;
 }
 
 .description h6 {
@@ -198,7 +211,6 @@ h6 {
 }
 
 .links ul {
-  list-style: none;
   line-height: 2.6em;
 }
 
@@ -218,6 +230,7 @@ footer {
   color: white;
   height: 50px;
   font-size: 13px;
+  font-family: Avenir;
 }
 
 #footer-link {

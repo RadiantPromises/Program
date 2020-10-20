@@ -206,7 +206,7 @@
 }
 
 .how-to-give {
-  margin-top: 40px;
+  margin: 40px 0px 40px 0px;
   padding: 10px;
 }
 
@@ -325,6 +325,11 @@
   height: 20px;
   padding-bottom: 5px;
   vertical-align: top;
+}
+
+.thank-you{
+  height: 150px;
+  padding: 50px;
 }
 
 @media only screen and (max-width: 400px) {

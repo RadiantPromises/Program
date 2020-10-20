@@ -127,19 +127,34 @@
 
 /* Join Us */
 .join-us{
-  padding: 0px 33px 0px 33px;
+  display: flex;
+  justify-content: center;
 }
 
 
 .join-left, .join-right{
   display: inline-block;
   vertical-align: top;
+  height: 525px;
 }
 
 .join-left{
+  padding: 120px 0px 120px 0px;
   background-color: #203E8C;
   color: white;
-  width: 394px;
+  width: 40%;
+}
+
+.join-left button{
+  margin-top: 20px;
+}
+
+.join-right{
+  width: 60%;
+}
+
+.join-right img{
+  width: 100%;
   height: 525px;
 }
 

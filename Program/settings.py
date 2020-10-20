@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'profiles',
     'generics',
     'sslserver',
-    'embed_video',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

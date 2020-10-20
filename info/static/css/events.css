@@ -1,0 +1,13 @@
+@font-face {
+  font-family: Poppins-SB;
+  src: local("Poppins-SB"),
+    url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+.events h3 {
+  width: 800px;
+  margin: auto;
+  padding: 50px;
+  font-size: 26px;
+  font-family: Poppins-SB;
+}

@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',default=False,cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'compressor',
     'info',
     'donations',
     'profiles',
@@ -130,3 +131,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_FINDERS = [
+    # One way of handling SCSS
+    # https://terencelucasyap.com/using-sass-django/
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+    # Another way
+    # https://www.accordbox.com/blog/how-use-scss-sass-your-django-project-python-way/
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+COMPRESS_ROOT = BASE_DIR + "/static/bootstrap"
+STATIC_ROOT = BASE_DIR + "/static/"
+
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')

@@ -10,7 +10,12 @@ a{
 }
 
 .container, nav{
+<<<<<<< Updated upstream
   min-width: 1050px;
+=======
+  min-width: 1260px;
+  /* Contact Page: max-width: 1260px; */
+>>>>>>> Stashed changes
 }
 
 /* FONTS */

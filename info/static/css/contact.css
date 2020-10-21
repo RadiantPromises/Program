@@ -1,0 +1,98 @@
+@font-face {
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
+}
+
+.container{
+  max-width: 1260px;
+}
+
+/* Get in Touch Section */
+.contact {
+  font-size: 0px;
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+}
+
+.contact-info {
+  padding-top: 80px;
+}
+
+.contact-info h2{
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  width: 50%;
+  margin: 20px auto 0px auto;
+}
+
+.contact-form input,
+#message {
+  border: none;
+  border-bottom: solid 1px rgb(0, 0, 0, 0.55);
+  line-height: 40px;
+}
+
+input,
+textarea {
+  font-family: Avenir;
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.contact-info,
+.contact-pic {
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  min-width: 630px;
+  height: 700px;
+}
+
+.contact-info p {
+  color: gray;
+  line-height: 30px;
+  font-size: 18px;
+  font-family: Avenir;
+}
+
+#name,
+#email {
+  width: 48%;
+}
+
+#name {
+  margin-right: 4%;
+}
+
+#subject,
+#message {
+  width: 100%;
+}
+
+#subject {
+  margin: 10px 0px 10px 0px;
+}
+
+#message {
+  margin-top: 15px;
+}
+
+.contact-form button {
+  background-color: white;
+  color: #213e8c;
+  font-family: Avenir;
+  font-size: 16px;
+}
+
+::placeholder {
+  font-family: Avenir;
+  font-size: 16px;
+}
+
+.contact-pic img {
+  width: 100%;
+  height: 100%;
+}

@@ -24,6 +24,8 @@ def our_target(request):
   }
   return render(request,'our_target.html',context)
 
+# support is in donations app "current_priorities.html"
+
 def events(request):
   context = {
     'page': 'events'
@@ -34,4 +36,4 @@ def contact(request):
   context = {
     'page': 'contact'
   }
-  return HttpResponse('Contact',context)
+  return render(request,'contact.html',context)

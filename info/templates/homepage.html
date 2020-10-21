@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | Radiant Promises</title>
 
@@ -13,44 +13,42 @@
       type="image/x-icon"
     />
 
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'js/global.js' %}"></script>
-    <input id="Page" type="hidden" value={{page}}>
+    <input id="Page" type="hidden" value="{{page}}" />
   </head>
   <body>
-    <nav>{% include "navbar.html" %}</nav>
+    <nav>{% include "components/navbar.html" %}</nav>
     <div class="container">
       <div class="jumbotron">
-        <img
-          src="https://static.wixstatic.com/media/11062b_46af75a907db4cfb945f0c8b989c3b60~mv2_d_7570_5046_s_4_2.jpg/v1/fill/w_980,h_882,al_c,q_85,usm_0.66_1.00_0.01/11062b_46af75a907db4cfb945f0c8b989c3b60~mv2_d_7570_5046_s_4_2.webp"
-          alt=""
-        />
+        <img src="{% static 'img/Cover.jpg' %}" alt="" />
       </div>
       <section class="jumbotext">
-        <h1>Join Us</h1>
-        <h1>Abolish Human Trafficking</h1>
-        <h1>and Homelessness!</h1>
-        <h1>Help Restore the Whole Person</h1>
+        <div>Join Us</div>
+        <div>Abolish Human Trafficking</div>
+        <div>and Homelessness!</div>
+        <div>Help Restore the Whole Person</div>
       </section>
-      <section class="banner">
-        <div class="mission-banner">
-          <h4>Our Mission</h4>
-          <h6>Our Goal, Vision & Commitment</h6>
-        </div>
-        <div class="events-banner">
-          <h4>Our Events</h4>
-          <h6>Register & Help Make a Change</h6>
-        </div>
-        <div class="involvement-banner">
-          <h4>Get Involved</h4>
-          <h6>Volunteer, Participate, or Donate</h6>
-        </div>
+      <section class="action-banner">
+        <a href="/about" class="mission-button">
+          <h2>Our Mission</h2>
+          <div class="action-text">Our Goal, Vision & Commitment</div>
+        </a>
+        <a href="/events" class="events-button">
+          <h2>Our Events</h2>
+          <div class="action-text">Register & Help Make a Change</div>
+        </a>
+        <a href="/donations" class="involvement-button">
+          <h2>Get Involved</h2>
+          <div class="action-text">Volunteer, Participate, or Donate</div>
+        </a>
       </section>
-      <section class="news centerText">
+      <section class="news">
         <h1>News</h1>
-        <p>
+        <p class="news-description">
           More than 23,000 children will age out of the U.S. foster care system
           every year. Estimates suggest that about 50,000 people are
           sex-trafficked in the U.S each year.
@@ -62,20 +60,24 @@
         </div>
         <button>Read More</button>
       </section>
-      <section class="quotes centerText">
-        <p>Our greatest American Asset is our Children!</p>
-        <p>
+      <section class="quotes banner">
+        <h3>Our greatest American Asset is our Children!</h3>
+        <br>
+        <h3>
           "When the righteous thrive, the people rejoice; when the wicked rule,
           the people groan."
-        </p>
+        </h3>
+        <br>
+        <p>Proverbs 29:2</p>
       </section>
+      
       <section class="events">
-        <h1 class="centerText">2020 Upcoming Events</h1>
+        <h1 ">2020 Upcoming Events</h1>
         <div class="event"></div>
       </section>
       <section class="join-us">
         <div class="join-left">
-          <h1>Join Us</h1>
+          <div class="join-header">Join Us</div>
           <h3>Rescue & Empower</h3>
           <h3>America's Youth Today</h3>
           <button>Donate Now</button>
@@ -87,8 +89,8 @@
           />
         </div>
       </section>
-      <section>{% include "quicklinks.html" %}</section>
-      <footer>{% include "footer.html" %}</footer>
+      <section>{% include "components/quicklinks.html" %}</section>
+      <footer>{% include "components/footer.html" %}</footer>
     </div>
   </body>
 </html>

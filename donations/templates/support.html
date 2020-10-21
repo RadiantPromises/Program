@@ -15,6 +15,7 @@
     <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
     <link rel="stylesheet" href="{% static 'css/current_priorities.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
     <!-- SCRIPTS -->
     <script src="https://js.stripe.com/v3/"></script>
@@ -27,35 +28,7 @@
     <input id="Page" type="hidden" value="{{page}}" />
   </head>
   <body>
-    <nav>{% include "navbar.html" %}</nav>
-    <!-- <nav>
-      <div class="nav-items">
-        <div class="nav-left">
-          <img
-            class="small-logo"
-            src="{% static 'img/small_logo.jpg' %}"
-            alt=""
-          />
-          <div class="slogan">
-            <h4>Radiant Promises</h4>
-            <h6>Help Every Child's Light Shine!</h6>
-          </div>
-        </div>
-        <div class="nav-center">
-          <div class="nav-links">
-            <a class="nav-link" href="">Home</a>
-            <a class="nav-link" href="">About</a>
-            <a class="nav-link" href="">Our Target</a>
-            <a class="nav-link current-page" href="">Support Us</a>
-            <a class="nav-link" href="">Events</a>
-            <a class="nav-link" href="">Contact</a>
-          </div>
-          <div class="menu-toggle">&#9776;</div>
-        </div>
-        <div class="nav-right">
-        </div>
-      </div>
-    </nav> -->
+    <nav>{% include "components/navbar.html" %}</nav>
     <div class="container">
       <h1>Radiant Promises</h1>
       <section class="priority-display">
@@ -92,7 +65,7 @@
             alt="Check out with PayPal"
         /></a>
         <div class="stripe-payment">
-          <button id="pay-with-card" >Pay with Card</button>
+          <button id="pay-with-card">Pay with Card</button>
           <!-- <form action="/updatePaymentIntent" method="POST" id="payment-form"> -->
           <form action="stripePayment" method="POST" id="payment-form">
             {% csrf_token %}
@@ -113,7 +86,9 @@
               <div class="spinner hidden" id="spinner"></div>
               <span id="button-text">Pay</span>
             </button>
-            <div id="powered-by-stripe">Powered by Stripe: A secure PCI compliant Payment Provider</div>
+            <div id="powered-by-stripe">
+              Powered by Stripe: A secure PCI compliant Payment Provider
+            </div>
             <p id="card-error" role="alert"></p>
             <p class="result-message hidden">
               Payment succeeded, see the result in your
@@ -149,8 +124,9 @@
             </p>
           </div>
         </div>
-        </div>
       </section>
+      <section>{% include "components/quicklinks.html" %}</section>
+      <footer>{% include "components/footer.html" %}</footer>
     </div>
   </body>
 </html>

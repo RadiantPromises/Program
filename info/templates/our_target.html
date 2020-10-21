@@ -35,17 +35,97 @@
   </head>
   <body>
     <nav>
-      <nav>{% include "navbar.html" %}</nav>
+      <nav>{% include "components/navbar.html" %}</nav>
     </nav>
     <div class="container">
       <section class="banner top-banner">
         <h1>The At-Risk Youth Crisis</h1>
       </section>
-      <section class="banner">
-        <div class="bottom-banner">{% include "bottom_banner.html" %}</div>
+      <section class="quote">
+        <h4>
+          The only thing necessary for the triumph of evil is that good men do
+          nothing.
+          <span>Edmund Burke</span>
+        </h4>
       </section>
-      <section>{% include "quicklinks.html" %}</section>
-      <footer>{% include "footer.html" %}</footer>
+      <section class="blogs">
+        <div class="blog-post">
+          <div class="blog-pic">
+            <img src="{% static 'img/Turned 18.jpg' %}" alt="" />
+          </div>
+          <div class="blog-text">
+            <h5>Turned 18 - Abandoned All Over Again!</h5>
+            <p>
+              2018 Statistics: 7 out of 10 girls who age out of the foster care
+              system will become pregnant before the age of 21. The percentage
+              of chi...
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <div class="blog-pic">
+            <img src="{% static 'img/Hands Tied.jpg' %}" alt="" />
+          </div>
+          <div class="blog-text">
+            <h5>Turned 18 - Abandoned All Over Again!</h5>
+            <p>
+              Key Statistics: From 2007 to 2017, the National Human Trafficking
+              Hotline, operated by Polaris, has received reports of 34,700 sex
+              traffi...
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <div class="blog-pic">
+            <img src="{% static 'img/Lonely Boy.jpg' %}" alt="" />
+          </div>
+          <div class="blog-text">
+            <h5>Aging - Out of Foster Care</h5>
+            <p>
+              2018 Statistics: 423,000 children are in Foster Care today! Many
+              Male teens are aging out of foster care every day and need a safe
+              home t...
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <div class="blog-pic">
+            <img src="{% static 'img/Couple.jpg' %}" alt="" />
+          </div>
+          <div class="blog-text">
+            <h5>Here are Ways We Can Restore!</h5>
+            <p>
+              “The smallest act of kindness is worth more than the grandest
+              intention.” - Oscar Wilde- Be involved in launching our
+              youth"Soar-2-Extrao...
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <div class="blog-pic">
+            <img src="{% static 'img/Sons_Daughters.jpg' %}" alt="" />
+          </div>
+          <div class="blog-text">
+            <h5>How to Protect Our Sons and Daughters</h5>
+            <p>
+              Create child awareness for their protection! Here are some tips
+              and links are excellent resources full of wisdom that is good our
+              youth a...
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="banner">
+        <div class="bottom-banner">
+          {% include "components/bottom_banner.html" %}
+        </div>
+      </section>
+      <section>{% include "components/quicklinks.html" %}</section>
+      <footer>{% include "components/footer.html" %}</footer>
     </div>
   </body>
 </html>

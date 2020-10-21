@@ -13,8 +13,7 @@
     />
 
     <!-- STYLE SHEETS -->
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
     <!-- SCRIPTS -->
@@ -35,7 +34,26 @@
       <section class="banner top-banner">
         <h1>Contact</h1>
       </section>
-<br>
+      <section class="contact">
+        <div class="contact-info">
+          <h2>Mail /Get in Touch</h2>
+          <p>Dolly Chacon</p>
+          <p>Radiant Promises</p>
+          <p>P.O. Box 3771, Vista, CA 92085</p>
+          <p>www.radiantpromises.com |  760-532-3540</p>
+          <form class="contact-form" action="" method="POST">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="email" id="email" placeholder="Email">
+            <input type="text" name="subject" id="subject" placeholder="Subject">
+            <textarea name="message" id="message" cols="30" rows="3" placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+        <div class="contact-pic">
+          <img src="{% static 'img/Friends.jpg' %}" alt="" />
+        </div>
+      </section>
+      <section class="location"></section>
       <section class="banner">
         <div class="bottom-banner">
           {% include "components/bottom_banner.html" %}

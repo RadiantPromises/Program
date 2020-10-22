@@ -6,6 +6,4 @@ urlpatterns = [
     path('stripePayment',views.stripePayment),
     path('stripeTesting',views.stripeTesting),
     path('updatePaymentIntent',views.updatePaymentIntent),
-    path('twilio',views.texts),
-    path('twilio/sendMessage',views.sendMessage),
 ]

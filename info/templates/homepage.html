@@ -6,22 +6,22 @@
     <title>Home | Radiant Promises</title>
 
     {% load static %}
-
+    {% load sass_tags %}
+    
     <link
-      rel="shortcut icon"
-      href="{% static 'img/small_logo.jpg' %}"
-      type="image/x-icon"
+    rel="shortcut icon"
+    href="{% static 'img/small_logo.jpg' %}"
+    type="image/x-icon"
     />
-
-    <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link href="{% sass_src 'sass/homepage.scss' %}" rel="stylesheet" type="text/css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'js/global.js' %}"></script>
     <input id="Page" type="hidden" value="{{page}}" />
   </head>
   <body>
-    <nav>{% include "components/navbar.html" %}</nav>
+    <!-- <nav>{% include "components/navbar.html" %}</nav> -->
     <div class="container">
       <div class="jumbotron">
         <img src="{% static 'img/Cover.jpg' %}" alt="" />
@@ -53,7 +53,7 @@
           every year. Estimates suggest that about 50,000 people are
           sex-trafficked in the U.S each year.
         </p>
-        <div class="news-stories">
+        <div class="stories">
           <div class="news-box">
             <img class="news-pic" src="{% static 'img/Turned 18.jpg' %}" alt="">
             <div class="news-title">
@@ -104,7 +104,7 @@
           />
         </div>
       </section>
-      <section>{% include "components/quicklinks.html" %}</section>
+      <!-- <section>{% include "components/quicklinks.html" %}</section> -->
       <footer>{% include "components/footer.html" %}</footer>
     </div>
   </body>

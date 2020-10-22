@@ -1,0 +1,181 @@
+* {
+  text-align: center; }
+
+@font-face {
+  font-family: Poppins-SB;
+  src: local("Poppins-SB"), url("../fonts/Poppins-SemiBold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: Futura-LT;
+  src: local("Futura-LT"), url("../fonts/FuturaLT.ttf") format("truetype"); }
+
+@font-face {
+  font-family: Poppins-RG;
+  src: local("Poppins-RG"), url("../fonts/Poppins-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype"); }
+
+.container,
+.jumbotron,
+.jumbotron img {
+  width: 100%; }
+
+.jumbotext {
+  position: relative;
+  bottom: 40vw;
+  height: 0px;
+  color: white;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  font-size: 6vw;
+  font-family: Poppins-SB; }
+
+.action-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .action-banner a {
+    padding: 27px 5px 0px 5px;
+    display: inline-block;
+    text-align: center;
+    height: 150px;
+    width: 33.333333%;
+    min-width: 270px;
+    color: white; }
+
+.mission-button {
+  background-color: #ec5f87; }
+
+.events-button {
+  background-color: #203e8c; }
+
+.involvement-button {
+  background-color: #7cabf4; }
+
+.news {
+  width: 80vw;
+  max-width: 1080px;
+  margin: 20px auto 60px auto; }
+  .news p {
+    line-height: 40px;
+    font-size: 23px;
+    font-family: Futura-LT;
+    margin: 0px auto 40px auto; }
+  .news .stories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px; }
+    .news .stories .news-box {
+      display: inline-block;
+      height: 266px;
+      width: 290px;
+      border: solid rgba(204, 204, 204, 0.7) 1px; }
+      .news .stories .news-box .news-pic {
+        width: 100%;
+        height: 60%; }
+      .news .stories .news-box .news-title {
+        padding: 20px;
+        font-family: Poppins-SB;
+        font-size: 18px; }
+  .news button {
+    background-color: #ec5f87;
+    color: white;
+    width: 159px;
+    height: 47px;
+    border: none;
+    font-family: Poppins-RG;
+    font-size: 16px; }
+
+.quotes {
+  padding: 40px;
+  font-style: italic; }
+  .quotes h3 {
+    width: 80vw;
+    margin: auto; }
+  .quotes p {
+    font-size: 18px;
+    font-style: normal;
+    font-family: Avenir; }
+
+.events {
+  padding: 40px; }
+  .events .event {
+    width: 100%;
+    border-bottom: solid grey 1px;
+    height: 50px; }
+
+.join-us {
+  display: flex;
+  justify-content: center; }
+  .join-us .join-left,
+  .join-us .join-right {
+    display: inline-block;
+    vertical-align: top;
+    height: 525px; }
+  .join-us .join-left {
+    padding: 120px 0px 120px 0px;
+    background-color: #203e8c;
+    color: white;
+    width: 40%; }
+    .join-us .join-left .join-header {
+      font-family: Poppins-SB;
+      font-size: 60px; }
+    .join-us .join-left button {
+      background-color: #ec5f87;
+      color: white;
+      width: 159px;
+      height: 47px;
+      border: none;
+      font-family: Poppins-RG;
+      font-size: 16px;
+      margin-top: 20px; }
+  .join-us .join-right {
+    width: 60%; }
+    .join-us .join-right img {
+      width: 100%;
+      height: 100%; }
+
+@media only screen and (max-width: 1200px) {
+  .action-banner {
+    flex-direction: column; }
+    .action-banner a {
+      width: 100%; }
+  .news p {
+    font-size: 4vw; }
+  .news .stories {
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    margin: auto; }
+    .news .stories .news-box {
+      width: 100%;
+      height: 45vw;
+      margin-bottom: 40px; }
+      .news .stories .news-box .news-pic {
+        height: 80%; }
+      .news .stories .news-box .news-title {
+        padding: 2vw;
+        font-size: 3vw; }
+  .quotes h3 {
+    font-size: 5vw; }
+  .events h1 {
+    font-size: 6vw; }
+  .join-us .join-left {
+    height: 60vw;
+    padding-top: 15vw; }
+    .join-us .join-left .join-header {
+      font-size: 6vw; }
+    .join-us .join-left h3 {
+      font-size: 3vw; }
+    .join-us .join-left button {
+      font-size: 1.5vw;
+      width: 12vw;
+      height: 4vw; }
+  .join-us .join-right {
+    height: 60vw; } }
+
+/*# sourceMappingURL=homepage.css.map */

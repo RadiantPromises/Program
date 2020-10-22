@@ -1,0 +1,239 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container, nav{
+  min-width: 1260px;
+}
+
+/* FONTS */
+@font-face {
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
+}
+
+/*    Replacement for Avenir */
+@font-face {
+  font-family: Metropolis;
+  src: local("Metropolis"),
+    url("../fonts/Metropolis-Light.otf") format("truetype");
+}
+
+@font-face {
+  font-family: Raleway;
+  src: local("Raleway"),
+    url("../fonts/Raleway-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Poppins-EL;
+  src: local("Poppins-EL"),
+    url("../fonts/Poppins-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Poppins-SB;
+  src: local("Poppins-SB"),
+    url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.notBold{
+  font-weight: 400;
+}
+
+.centerText{
+  text-align: center;
+}
+
+/* HTML TAGS */
+
+button {
+  background-color: #ec5e87;
+  border: none;
+  color: white;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 70px;
+  font-family: Poppins-SB;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: Poppins-SB;
+}
+
+h3 {
+  font-size: 34px;
+  font-family: Avenir;
+}
+
+h4 {
+  font-size: 30px;
+  font-family: Poppins-SB;
+}
+
+h5 {
+  font-size: 28px;
+  font-family: Poppins-SB;
+}
+
+h6 {
+  font-size: 20px;
+  font-family: Poppins-SB;
+}
+
+/* BANNERS */
+.banner {
+  color: white;
+  background-color: #223d8c;
+  text-align: center;
+}
+
+
+
+/*  - Top Banner */
+.top-banner {
+  height: 200px;
+  font-family: Poppins-SB;
+  padding: 50px;
+}
+
+/*   - Action Banner */
+.action-text{
+  font-size: 18px;
+  font-family: Avenir;
+}
+
+/*  - Bottom Banner */
+.bottom-banner {
+  font-family: Avenir;
+  width: 685px;
+  margin: auto;
+  padding: 42px 20px 20px 20px;
+}
+
+#bottom-banner-button {
+  margin-top: 22px;
+  color: black;
+  background-color: white;
+  width: 179px;
+  font-family: Poppins-EL;
+  font-size: 16px;
+}
+
+/* QUICK LINKS FOOTER */
+
+.quick-links *{
+  text-align: left;
+}
+
+.quick-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 80px 0px 80px;
+}
+
+.quick-links ul{
+  list-style: none;
+}
+
+.quick-links p, .quick-links span, .quick-links a{
+  font-family: Avenir;
+  font-size: 15px;
+}
+
+.quick-links-item {
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+}
+
+.quick-links-item *{
+  text-align: left;
+}
+
+.quick-links h6 {
+  margin: 5px 0px 5px 0px;
+}
+
+.description {
+  width: 342px;
+}
+
+.description h6 {
+  margin-bottom: 19px;
+}
+
+.description p {
+  line-height: 25.5px;
+}
+
+.subscribe {
+  width: 500px;
+}
+
+.subscribe input,
+.subscribe button {
+  width: 100%;
+}
+
+.subscribe input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.subscribe button {
+  height: 40px;
+  font-size: 16px;
+  font-family: Poppins-EL;
+  font-weight: 700;
+  text-align: center;
+}
+
+.links {
+  width: 200px;
+  padding-left: 5px;
+}
+
+.links ul {
+  line-height: 2.6em;
+}
+
+.links a {
+  text-decoration: none;
+  color: black;
+}
+
+footer {
+  background-color: #101f46;
+}
+
+.footer-items {
+  padding: 11px;
+  margin: auto;
+  width: 310px;
+  color: white;
+  height: 50px;
+  font-size: 13px;
+  font-family: Avenir;
+}
+
+#footer-link {
+  color: white;
+  margin-right: 10px;
+}

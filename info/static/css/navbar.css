@@ -20,7 +20,6 @@
   display: flex;
   justify-content: space-between;
   border-bottom: solid grey 5px;
-  padding: 5px;
   min-height: 76px;
 }
 .nav-left,
@@ -35,12 +34,12 @@
 }
 
 .nav-center {
-  padding: 15px 0px 0px 0px;
+  padding: 25px 0px 0px 0px;
   vertical-align: top;
 }
 
 .nav-right {
-  padding: 8px 0px 0px 70px;
+  padding-left: 70px;
 }
 
 .centerText {
@@ -48,6 +47,10 @@
 }
 
 /* Nav Left */
+.nav-left {
+  padding: 10px;
+}
+
 .small-logo {
   display: inline-block;
   vertical-align: top;
@@ -57,7 +60,7 @@
 
 .slogan {
   display: inline-block;
-  padding: 10px;
+  padding: 2px;
   text-align: center;
 }
 
@@ -90,15 +93,19 @@
 
 .menu-toggle {
   display: none;
+  font-size: 40px;
 }
 
 /* Nav Right */
 #donate-button {
+  font-family: Poppins-L;
+  font-size: 20px;
   background-color: #ec5e87;
   border: none;
   color: white;
   padding: 10px;
-  width: 63px;
+  width: 100%;
+  height: 100%;
 }
 
 /* .donate,
@@ -112,14 +119,26 @@
 } */
 
 /* Media Breaks */
-@media only screen and (max-width: 1035px) {
-  .slogan {
+@media only screen and (max-width: 1100px) {
+  .nav-links {
     display: none;
   }
+  .menu-toggle {
+    display: inline-block;
+  }
 
+  .nav-center{
+    padding-top: 5px;
+  }
   /* .nav-left,
   .nav-right {
     min-width: 65px;
+  } */
+}
+
+@media only screen and (max-width: 900px){
+  /* .slogan {
+    display: none;
   } */
 }
 

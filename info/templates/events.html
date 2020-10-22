@@ -13,8 +13,7 @@
     />
 
     <!-- STYLE SHEETS -->
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/events.css' %}" />
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
     <!-- SCRIPTS -->
@@ -35,9 +34,33 @@
       <section class="banner top-banner">
         <h1>2020 Events</h1>
       </section>
-      <section class="events">
-        <h3>No Upcoming Events at the moment</h3>
+      <section class="test-event">
+        <div id="eventbrite-widget-container-126274942753"></div>
+
+        <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+
+        <script type="text/javascript">
+          var exampleCallback = function () {
+            console.log("Order complete!");
+          };
+
+          window.EBWidgets.createWidget({
+            // Required
+            widgetType: "checkout",
+            eventId: "126274942753",
+            iframeContainerId: "eventbrite-widget-container-126274942753",
+
+            // Optional
+            iframeContainerHeight: 425, // Widget height in pixels. Defaults to a minimum of 425px if not provided
+            onOrderComplete: exampleCallback, // Method called when an order has successfully completed
+          });
+        </script>
       </section>
+
+      <!-- <section class="events">
+        <h3>No Upcoming Events at the moment</h3>
+      </section> -->
+
       <section class="banner">
         <div class="bottom-banner">
           {% include "components/bottom_banner.html" %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'info',
     'profiles',
     'compressor',
+    'sass_processor',
     'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,0 +1,59 @@
+.nav-items{
+  display: grid;
+  grid-template-columns: auto 380px auto;
+}
+
+
+.nav-left, .nav-center, .nav-right{
+  display: inline-block;
+  border: solid blue 1px
+}
+
+
+.centerText{
+  text-align: center;
+}
+
+.small-logo {
+  display: inline-block;
+  vertical-align: top;
+  height: 50px;
+  width: 60px;
+  /* border: solid 1px grey; */
+}
+
+.slogan {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  /* margin: 20px; */
+}
+
+.nav-links{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link{
+  width: auto;
+  color: black;
+  text-decoration: none;
+  margin: 0px 3px 0px 3px;
+}
+
+.menu-toggle{
+  display: none;
+}
+
+.current-page{
+  border-bottom: solid #EC5F87;
+}
+
+.donate, .cart {
+  color: white;
+  height: 35px;
+  padding: 0px 20px 0px 20px;
+  border-radius: 5px;
+  border-color: white;
+  background-color: #EC5F87;
+}

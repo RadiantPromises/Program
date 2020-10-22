@@ -8,9 +8,9 @@ a{
   text-decoration: none;
 }
 
-.container, nav{
+/* .container, nav{
   min-width: 1260px;
-}
+} */
 
 /* FONTS */
 @font-face {
@@ -61,7 +61,6 @@ button {
   background-color: #ec5e87;
   border: none;
   color: white;
-  padding: 10px;
 }
 
 h1 {

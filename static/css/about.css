@@ -1,0 +1,59 @@
+@font-face {
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
+}
+
+p {
+  font-size: 18px;
+  font-family: Avenir;
+}
+
+/* Fleeing From Darkness Story */
+.story {
+  width: 85%;
+  margin: 20px auto 20px auto;
+  text-align: left;
+}
+
+/* We Believe Banner */
+.our-mission{
+  font-size: 0px;
+}
+.pink {
+  background-color: #ec5e86;
+  padding: 50px 10px 50px 10px;
+}
+
+.we-believe {
+  margin: auto;
+  font-style: italic;
+}
+
+/* Our Mission */
+.our-mission, .founder{
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+}
+
+.text,
+.pic {
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  min-width: 630px;
+}
+
+.text{
+  padding: 40px;
+}
+
+.text h2{
+  margin-top: 115px;
+  margin-bottom: 20px;
+}
+
+
+.pic img {
+  width: 100%;
+}

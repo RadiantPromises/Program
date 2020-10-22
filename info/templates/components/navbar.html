@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+  <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}" /> -->
+
+  {% load compress %}
+
+  {% compress css %}
+    <link type="text/x-scss" href="{% static 'scss/navbar.scss' %}" rel="stylesheet" media="screen">
+  {% endcompress %}
 </head>
 <body>
   <div class="nav-items">

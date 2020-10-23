@@ -34,6 +34,9 @@ def index(request):
   }
   return render(request,"support.html",context)
 
+def phases(request):
+  return render(request,"phases.html")
+
 def stripeTesting(request):
   stripe.api_key = config('STRIPE_KEY')
   return render(request,"stripe_testing.html")

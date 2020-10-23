@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About | Radiant Promises</title>
-    {% load static %}
-
+    {% load static %} {% load sass_tags %}
     <link
       rel="shortcut icon"
       href="{% static 'img/small_logo.jpg' %}"
@@ -14,6 +13,12 @@
 
     <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link href="{% sass_src 'sass/global.scss' %}" rel="stylesheet" type="text/css" />
+    <link
+      href="{% sass_src 'sass/about.scss' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link rel="stylesheet" href="{% static 'css/about.css' %}" />
 
     <!-- SCRIPTS -->
@@ -33,7 +38,15 @@
       <section class="banner top-banner">
         <h1>About</h1>
       </section>
-      <br />
+      <section class="video">
+        <iframe
+          id="priority-video"
+          src="https://www.youtube.com/embed/8kLvWZ-DG6s?&autoplay=1&mute=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </section>
 
       <section class="story">
         <p>FLEEING THE DARKNESS</p>

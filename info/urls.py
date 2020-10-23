@@ -10,4 +10,5 @@ urlpatterns = [
     path('events',views.events),
     path('contact',views.contact),
     path('navbar',views.navbar),
+    path('privacy',views.privacy),
 ]

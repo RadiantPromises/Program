@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    {% load static %} {% load sass_tags %}
+    <!-- Page Info -->
+    <title>{{page_title}} | Radiant Promises</title>
+    <link rel="shortcut icon" href="{% static 'img/small_logo.jpg' %}" type="image/x-icon" />
+    <input id="Page" type="hidden" value="{{pageID}}" />  <!-- Navbar Page Highlighting -->
+
+    <!-- SCSS -->
+    <link href="{% sass_src 'sass/global.scss' %}" rel="stylesheet" type="text/css" />
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/global.js' %}"></script>
+  </head>
+<body>
+  <nav>{% include "components/navbar.html" %}</nav>
+  {% block content %}
+  {% endblock %}
+  <section>{% include "components/quicklinks.html" %}</section>
+  <footer>{% include "components/footer.html" %}</footer>
+</body>
+</html>

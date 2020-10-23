@@ -220,6 +220,25 @@ h6 {
   }
 }
 
+footer {
+  background-color: #101f46;
+}
+
+.footer-items {
+  padding: 11px;
+  margin: auto;
+  width: 310px;
+  color: white;
+  height: 50px;
+  font-size: 13px;
+  font-family: Avenir;
+}
+
+#footer-link {
+  color: white;
+  margin-right: 10px;
+}
+
 @media only screen and (max-width: 900px) {
   .quick-links {
     flex-direction: column-reverse;

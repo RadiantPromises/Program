@@ -1,0 +1,98 @@
+.contact {
+  font-size: 0px;
+  display: flex;
+  justify-content: center;
+  vertical-align: top; }
+  .contact .contact-info,
+  .contact .contact-pic {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    height: 50vw; }
+  .contact .contact-info {
+    padding-top: 80px; }
+    .contact .contact-info p {
+      color: gray;
+      line-height: 30px;
+      font-size: 18px;
+      font-family: Avenir; }
+    .contact .contact-info input,
+    .contact .contact-info textarea {
+      font-family: Avenir;
+      font-size: 16px;
+      padding-left: 15px; }
+    .contact .contact-info h2 {
+      margin-bottom: 20px; }
+    .contact .contact-info .contact-form {
+      width: 50%;
+      margin: 20px auto 0px auto; }
+      .contact .contact-info .contact-form button {
+        background-color: white;
+        color: #213e8c;
+        font-family: Avenir;
+        font-size: 16px; }
+      .contact .contact-info .contact-form ::placeholder {
+        font-family: Avenir;
+        font-size: 16px; }
+      .contact .contact-info .contact-form #name,
+      .contact .contact-info .contact-form #email {
+        width: 48%; }
+      .contact .contact-info .contact-form #name {
+        margin-right: 4%; }
+      .contact .contact-info .contact-form #subject,
+      .contact .contact-info .contact-form #message {
+        width: 100%; }
+      .contact .contact-info .contact-form #subject {
+        margin: 10px 0px 10px 0px; }
+      .contact .contact-info .contact-form #message {
+        margin-top: 15px; }
+      .contact .contact-info .contact-form input,
+      .contact .contact-info .contact-form #message {
+        border: none;
+        border-bottom: solid 1px black;
+        line-height: 40px; }
+  .contact .contact-pic img {
+    width: 100%;
+    height: 100%; }
+
+@media only screen and (max-width: 1200px) {
+  .contact .contact-info {
+    padding-top: 6.7vw; }
+    .contact .contact-info p {
+      font-size: 1.5vw;
+      line-height: 2.5vw; }
+    .contact .contact-info h2 {
+      margin-bottom: 1.7vw; }
+    .contact .contact-info .contact-form {
+      margin-top: 1.6vw; }
+      .contact .contact-info .contact-form ::placeholder {
+        font-size: 1.3vw; }
+      .contact .contact-info .contact-form #subject {
+        margin: 0.8vw 0px 0.8vw 0px; }
+      .contact .contact-info .contact-form #message {
+        margin-top: 1.3vw; }
+      .contact .contact-info .contact-form input,
+      .contact .contact-info .contact-form #message {
+        line-height: 3.4vw; }
+      .contact .contact-info .contact-form button {
+        font-size: 1.5vw; } }
+
+@media only screen and (max-width: 800px) {
+  .contact .contact-info {
+    padding-top: 5vw; }
+    .contact .contact-info p {
+      font-size: 1.5vw;
+      line-height: 2vw; }
+    .contact .contact-info .contact-form {
+      margin-top: 1vw; }
+      .contact .contact-info .contact-form ::placeholder {
+        font-size: 1.3vw; }
+      .contact .contact-info .contact-form #subject {
+        margin: 0.3vw 0px 0.3vw 0px; }
+      .contact .contact-info .contact-form #message {
+        margin-top: 1.3vw; }
+      .contact .contact-info .contact-form input,
+      .contact .contact-info .contact-form #message {
+        line-height: 2vw; } }
+
+/*# sourceMappingURL=contact.css.map */

@@ -1,0 +1,160 @@
+// Get In Touch Section
+.contact {
+  font-size: 0px;
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+
+  .contact-info,
+  .contact-pic {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    height: 50vw;
+  }
+
+  .contact-info {
+    padding-top: 80px;
+
+    p {
+      color: gray;
+      line-height: 30px;
+      font-size: 18px;
+      font-family: Avenir;
+    }
+
+    input,
+    textarea {
+      font-family: Avenir;
+      font-size: 16px;
+      padding-left: 15px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      width: 50%;
+      margin: 20px auto 0px auto;
+
+      button {
+        background-color: white;
+        color: #213e8c;
+        font-family: Avenir;
+        font-size: 16px;
+      }
+
+      ::placeholder {
+        font-family: Avenir;
+        font-size: 16px;
+      }
+
+      #name,
+      #email {
+        width: 48%;
+      }
+
+      #name {
+        margin-right: 4%;
+      }
+
+      #subject,
+      #message {
+        width: 100%;
+      }
+
+      #subject {
+        margin: 10px 0px 10px 0px;
+      }
+
+      #message {
+        margin-top: 15px;
+      }
+
+      input,
+      #message {
+        border: none;
+        border-bottom: solid 1px rgb(0, 0, 0);
+        // border-bottom: solid 1px rgb(0, 0, 0, 0.55);
+        line-height: 40px;
+      }
+    }
+  }
+  .contact-pic {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .contact {
+    .contact-info {
+      padding-top: 6.7vw;
+      p {
+        font-size: 1.5vw;
+        line-height: 2.5vw;
+      }
+
+      h2{
+        margin-bottom: 1.7vw;
+      }
+      .contact-form {
+        margin-top: 1.6vw;
+        ::placeholder {
+          font-size: 1.3vw;
+        }
+
+        #subject {
+          margin: 0.8vw 0px 0.8vw 0px;
+        }
+
+        #message {
+          margin-top: 1.3vw;
+        }
+
+        input,
+        #message {
+          line-height: 3.4vw;
+        }
+
+        button{
+          font-size: 1.5vw;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contact {
+    .contact-info {
+      padding-top: 5vw;
+      p {
+        font-size: 1.5vw;
+        line-height: 2vw;
+      }
+      .contact-form {
+        margin-top: 1vw;
+        ::placeholder {
+          font-size: 1.3vw;
+        }
+
+        #subject {
+          margin: 0.3vw 0px 0.3vw 0px;
+        }
+
+        #message {
+          margin-top: 1.3vw;
+        }
+
+        input,
+        #message {
+          line-height: 2vw;
+        }
+      }
+    }
+  }
+}

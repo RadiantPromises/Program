@@ -183,6 +183,8 @@ footer {
 @media only screen and (max-width: 1200px) {
   h1 {
     font-size: 6vw; }
+  h2 {
+    font-size: 3.4vw; }
   h3 {
     font-size: 4vw; }
   h4, h5 {

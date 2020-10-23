@@ -99,7 +99,6 @@ h6 {
 /*  - Bottom Banner */
 .bottom-banner {
   font-family: Avenir;
-  width: 685px;
   margin: auto;
   padding: 42px 20px 20px 20px; }
 
@@ -183,15 +182,19 @@ footer {
   margin-right: 10px; }
 
 @media only screen and (max-width: 1200px) {
-  .top-banner {
-    padding: 4vw;
-    height: auto; }
   h1 {
     font-size: 6vw; }
   h3 {
     font-size: 4vw; }
   h4, h5 {
-    font-size: 2.5vw; } }
+    font-size: 2.5vw; }
+  .top-banner {
+    padding: 4vw;
+    height: auto; }
+  .bottom-banner {
+    padding: 5vw 2.5vw 5vw 2.5vw; }
+  #bottom-banner-button {
+    margin-top: 4vw; } }
 
 @media only screen and (max-width: 900px) {
   .quick-links {

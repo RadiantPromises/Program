@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  {% load static %}
-  
-  {% load compress %}
-  
-  {% compress css %}
-  <link type="text/x-scss" href="{% static 'sass/navbar.scss' %}" rel="stylesheet" media="screen">
-  {% endcompress %}
-  <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-</head>
-<body>
-  <div class="nav-items">
-    <div class="nav-left">
-      <img
-        class="small-logo"
-        src="{% static 'img/small_logo.jpg' %}"
-        alt=""
-      />
-      <div class="slogan">
-        <div id="slogan-title">Radiant Promises</div>
-        <div id="slogan-text">Help Every Child's Light Shine!</div>
+  <head>
+    {% load static %} {% load compress %} {% compress css %}
+    <link
+      type="text/x-scss"
+      href="{% static 'sass/navbar.scss' %}"
+      rel="stylesheet"
+      media="screen"
+    />
+    {% endcompress %}
+  </head>
+  <body>
+    <div class="nav-items">
+      <div class="nav-left">
+        <a href="/">
+          <img
+            class="small-logo"
+            src="{% static 'img/small_logo.jpg' %}"
+            alt=""
+          />
+        </a>
+        <div class="slogan">
+          <a href="/">
+            <div id="slogan-title">Radiant Promises</div>
+            <div id="slogan-text">Help Every Child's Light Shine!</div>
+          </div>
+        </a>
+      </div>
+      <div class="nav-center">
+        <div class="menu-toggle">&#9776;</div>
+        <div class="nav-links">
+          <a class="nav-link" id="home" href="/">Home</a>
+          <a class="nav-link" id="about" href="/about">About</a>
+          <a class="nav-link" id="our_target" href="/our_target">Our Target</a>
+          <a class="nav-link" id="support" href="/donations">Support Us</a>
+          <a class="nav-link" id="events" href="/events">Events</a>
+          <a class="nav-link" id="contact" href="/contact">Contact</a>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="http://localhost:8000/donations/">
+          <button id="donate-button">Donate</button>
+        </a>
       </div>
     </div>
-    <div class="nav-center">
-      <div class="nav-links">
-        <a class="nav-link" id="home" href="/">Home</a>
-        <a class="nav-link" id="about" href="/about">About</a>
-        <a class="nav-link" id="our_target" href="/our_target">Our Target</a>
-        <a class="nav-link" id="support" href="/donations">Support Us</a>
-        <a class="nav-link" id="events" href="/events">Events</a>
-        <a class="nav-link" id="contact" href="/contact">Contact</a>
-      </div>
-      <div class="menu-toggle">&#9776;</div>
-    </div>
-    <div class="nav-right">
-      <button id="donate-button">Donate</button>
-    </div>
-  </div>
-</body>
+
+    <!-- <div class="drop-down-menu">Hello</div> -->
+  </body>
 </html>

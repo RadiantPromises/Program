@@ -2,6 +2,7 @@ $minWidth: 256px;
 $navCenterPadding: 25px 0px 0px 0px;
 $navRightPadding: 0px 0px 0px 70px;
 $primary-color: #ec5f87;
+$dark-text: black;
 
 @font-face {
   font-family: Poppins-EL;
@@ -30,6 +31,7 @@ $primary-color: #ec5f87;
   justify-content: space-between;
   border-bottom: solid grey 5px;
   min-height: 76px;
+  text-align: center;
 }
 
 // Nav Left
@@ -38,27 +40,30 @@ $primary-color: #ec5f87;
   min-width: $minWidth;
   padding: 10px;
   margin-top: 5px;
-
+  
   .small-logo {
     display: inline-block;
     vertical-align: top;
     height: 50px;
     width: 60px;
   }
-
+  
   .slogan {
     display: inline-block;
     padding: 2px;
-    text-align: center;
+    
+    // text-align: center;
   }
 
   #slogan-title {
+    color: $dark-text;
     font-family: Poppins-L;
     font-size: 20px;
     font-weight: bold;
   }
 
   #slogan-text {
+    color: $dark-text;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     // margin-top: -3px;
@@ -69,7 +74,7 @@ $primary-color: #ec5f87;
   display: inline-block;
   vertical-align: top;
   padding: $navCenterPadding;
-  // margin-left: -240px;
+  // text-align: center;
   margin-top: 5px;
 
   .nav-links {
@@ -110,17 +115,39 @@ $primary-color: #ec5f87;
   }
 }
 
+// Drop Down Menu
+.drop-down-menu{
+  display: none;
+}
+
 /* Media Breaks */
 @media only screen and (max-width: 1100px) {
+  .nav-right{
+    height: 80px;
+  }
+  
   .nav-center {
     padding-top: 5px;
     .nav-links {
+      // border-top: solid $primary-color 1px;
+      min-width: auto;
+      margin-top: 25px;
+      line-height: 30px;
+      flex-direction: column; 
       display: none;
+      .nav-link{
+        width: 100%;
+        margin: 0px 0px 0px 0px;
+        background-color: white;
+      }
     }
     .menu-toggle {
       display: inline-block;
     }
   }
+  // .drop-down-menu{
+  //   display: block;
+  // }
 }
 
 @media only screen and (max-width: 600px) {
@@ -134,9 +161,6 @@ $primary-color: #ec5f87;
   }
 
   .nav-left {
-    .small-logo{
-
-    }
     .slogan {
       display: none;
     }

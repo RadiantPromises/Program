@@ -9,29 +9,6 @@ $tertiary-color: #7cabf4;
 $light-text: white;
 $dark-text: black;
 
-// FONTS
-@font-face {
-  font-family: Poppins-SB;
-  src: local("Poppins-SB"),
-    url("../fonts/Poppins-SemiBold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Futura-LT;
-  src: local("Futura-LT"), url("../fonts/FuturaLT.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Poppins-RG;
-  src: local("Poppins-RG"),
-    url("../fonts/Poppins-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Avenir;
-  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
-}
-
 // Container & Overall sizes
 .container,
 .jumbotron,

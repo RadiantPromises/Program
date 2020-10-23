@@ -1,0 +1,96 @@
+p {
+  font-size: 18px;
+  font-family: Avenir;
+}
+
+// Video
+.video {
+  width: 60vw;
+  height: 40vw;
+  margin: 30px auto 60px auto;
+
+  padding: 10px 10px 7px 10px;
+  border-radius: 1vw;
+  -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
+  box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.49);
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Story
+.story {
+  width: 85%;
+  margin: 20px auto 40px auto;
+  text-align: left;
+}
+
+// We Believe Banner
+.pink {
+  background-color: #ec5e86;
+  padding: 50px 10px 50px 10px;
+}
+
+.we-believe {
+  margin: auto;
+  font-style: italic;
+}
+
+// Our Mission & Founder
+.our-mission,
+.founder {
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+}
+
+.text,
+.pic {
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+}
+
+.text {
+  padding: 40px;
+  h2 {
+    margin-top: 115px;
+    margin-bottom: 20px;
+  }
+}
+
+.pic img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .video{
+    width: 100%;
+    height: 80vw;
+    margin: 10px 0px 20px 0px;
+    padding: 0px;
+    border: none;
+  }
+  
+  
+  .text {
+    padding: 2.5vw;
+    h2 {
+      font-size: 3vw;
+      margin-top: 12vw;
+    }
+  }
+  p {
+    font-size: 1.5vw;
+  }
+  .founder {
+    .text {
+      h2 {
+        margin-top: 8vw;
+      }
+    }
+  }
+}

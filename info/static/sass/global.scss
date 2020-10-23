@@ -41,9 +41,25 @@ a {
 }
 
 @font-face {
+  font-family: Poppins-RG;
+  src: local("Poppins-RG"),
+    url("../fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
   font-family: Poppins-SB;
   src: local("Poppins-SB"),
     url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Futura-LT;
+  src: local("Futura-LT"), url("../fonts/FuturaLT.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype");
 }
 
 /* HTML TAGS */
@@ -239,6 +255,21 @@ footer {
   margin-right: 10px;
 }
 
+@media only screen and (max-width: 1200px) {
+  .top-banner{
+    padding: 4vw;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 6vw;
+  }
+
+  h3 {
+    font-size: 4vw;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .quick-links {
     flex-direction: column-reverse;
@@ -251,11 +282,11 @@ footer {
       }
     }
 
-    .description{
+    .description {
       width: 100%;
     }
 
-    .subscribe{
+    .subscribe {
       width: 100%;
     }
     .links {

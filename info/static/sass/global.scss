@@ -140,10 +140,11 @@ h6 {
 }
 
 #bottom-banner-button {
-  margin-top: 22px;
+  display: block;
+  margin: 22px auto 0px auto;
   color: $dark-text;
   background-color: white;
-  width: 179px;
+  width: 176px;
   font-family: Poppins-EL;
   font-size: 16px;
 }

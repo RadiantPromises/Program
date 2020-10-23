@@ -99,4 +99,73 @@ h6 {
   font-family: Poppins-EL;
   font-size: 16px; }
 
+/* QUICK LINKS FOOTER */
+.quick-links {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  margin: auto; }
+  .quick-links * {
+    text-align: left; }
+  .quick-links ul {
+    list-style: none; }
+  .quick-links p,
+  .quick-links span,
+  .quick-links a {
+    font-family: Avenir;
+    font-size: 15px; }
+  .quick-links h6 {
+    margin: 5px 0px 5px 0px; }
+  .quick-links .quick-links-item {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px; }
+    .quick-links .quick-links-item * {
+      text-align: left; }
+  .quick-links .description {
+    width: 342px; }
+    .quick-links .description h6 {
+      margin-bottom: 19px; }
+    .quick-links .description p {
+      line-height: 25.5px; }
+  .quick-links .subscribe {
+    width: 500px; }
+    .quick-links .subscribe input,
+    .quick-links .subscribe button {
+      width: 100%; }
+    .quick-links .subscribe input {
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      padding: 5px;
+      margin-bottom: 20px; }
+    .quick-links .subscribe button {
+      height: 40px;
+      font-size: 16px;
+      font-family: Poppins-EL;
+      font-weight: 700;
+      text-align: center; }
+  .quick-links .links {
+    width: 200px;
+    padding-left: 5px; }
+    .quick-links .links ul {
+      line-height: 2.6em; }
+    .quick-links .links a {
+      text-decoration: none;
+      color: black; }
+
+@media only screen and (max-width: 900px) {
+  .quick-links {
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%; }
+    .quick-links .quick-links-item * {
+      text-align: center; }
+    .quick-links .description {
+      width: 100%; }
+    .quick-links .subscribe {
+      width: 100%; }
+    .quick-links .links {
+      display: none; } }
+
 /*# sourceMappingURL=global.css.map */

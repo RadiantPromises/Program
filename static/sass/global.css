@@ -1,0 +1,102 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+/* FONTS */
+@font-face {
+  font-family: Avenir;
+  src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype"); }
+
+/*    Replacement for Avenir */
+@font-face {
+  font-family: Metropolis;
+  src: local("Metropolis"), url("../fonts/Metropolis-Light.otf") format("truetype"); }
+
+@font-face {
+  font-family: Raleway;
+  src: local("Raleway"), url("../fonts/Raleway-ExtraLight.ttf") format("truetype"); }
+
+@font-face {
+  font-family: Poppins-EL;
+  src: local("Poppins-EL"), url("../fonts/Poppins-ExtraLight.ttf") format("truetype"); }
+
+@font-face {
+  font-family: Poppins-SB;
+  src: local("Poppins-SB"), url("../fonts/Poppins-SemiBold.ttf") format("truetype"); }
+
+/* HTML TAGS */
+button {
+  background-color: #ec5f87;
+  border: none;
+  color: white; }
+
+h1 {
+  font-size: 70px;
+  font-family: Poppins-SB; }
+
+h2 {
+  font-size: 40px;
+  font-family: Poppins-SB; }
+
+h3 {
+  font-size: 34px;
+  font-family: Avenir; }
+
+h4 {
+  font-size: 30px;
+  font-family: Poppins-SB; }
+
+h5 {
+  font-size: 28px;
+  font-family: Poppins-SB; }
+
+h6 {
+  font-size: 20px;
+  font-family: Poppins-SB; }
+
+.bold {
+  font-weight: 900; }
+
+.notBold {
+  font-weight: 400; }
+
+.centerText {
+  text-align: center; }
+
+/* BANNERS */
+.banner {
+  color: white;
+  background-color: #203e8c;
+  text-align: center; }
+
+/*  - Top Banner */
+.top-banner {
+  height: 200px;
+  font-family: Poppins-SB;
+  padding: 50px; }
+
+/*   - Action Banner */
+.action-text {
+  font-size: 18px;
+  font-family: Avenir; }
+
+/*  - Bottom Banner */
+.bottom-banner {
+  font-family: Avenir;
+  width: 685px;
+  margin: auto;
+  padding: 42px 20px 20px 20px; }
+
+#bottom-banner-button {
+  margin-top: 22px;
+  color: black;
+  background-color: white;
+  width: 179px;
+  font-family: Poppins-EL;
+  font-size: 16px; }
+
+/*# sourceMappingURL=global.css.map */

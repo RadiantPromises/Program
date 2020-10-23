@@ -7,10 +7,8 @@
     font-size: 15px; }
 
 .blog-post {
-  width: 90%;
+  width: 90vw;
   height: 35vw;
-  min-height: 446px;
-  font-size: 0px;
   margin: 0px auto 40px auto;
   border: solid 1px black;
   display: flex;
@@ -30,5 +28,12 @@
     padding: 30px 60px 30px 30px; }
     .blog-post .blog-text h5 {
       margin-bottom: 20px; }
+
+@media only screen and (max-width: 1200px) {
+  .blog-post {
+    margin: 0px auto 3.3vw auto; }
+    .blog-post .blog-text {
+      padding: 2.5vw 5vw 2.5vw 2.5vw;
+      font-size: 1.3vw; } }
 
 /*# sourceMappingURL=our_target.css.map */

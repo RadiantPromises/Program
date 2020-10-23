@@ -256,17 +256,21 @@ footer {
 }
 
 @media only screen and (max-width: 1200px) {
-  .top-banner{
+  .top-banner {
     padding: 4vw;
     height: auto;
   }
-  
+
   h1 {
     font-size: 6vw;
   }
 
   h3 {
     font-size: 4vw;
+  }
+
+  h4, h5 {
+    font-size: 2.5vw;
   }
 }
 

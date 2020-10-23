@@ -26,7 +26,8 @@ def index(request):
 
 
   context = {
-    'page': "support",
+    'pageID': "support",
+    'page_title': 'Support Us',
     'percentageRaised' : percentageRaised,
     'percentageRequired' : percentageRequired,
     'fundsRaised':  f"{fundsRaised:,}",

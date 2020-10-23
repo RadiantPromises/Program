@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Target | Radiant Promises</title>
-    {% load static %}
+    {% load static %} {% load sass_tags %}
 
     <link
       rel="shortcut icon"
@@ -13,7 +13,7 @@
     />
 
     <!-- STYLE SHEETS -->
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link href="{% sass_src 'sass/global.scss' %}" rel="stylesheet" type="text/css" />
     <!-- {% load compress %}
 
     {% compress css %}

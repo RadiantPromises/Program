@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Radiant Promises</title>
-
-    {% load static %}
-    {% load sass_tags %}
-    
-    <link
-    rel="shortcut icon"
-    href="{% static 'img/small_logo.jpg' %}"
-    type="image/x-icon"
-    />
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
-    <link href="{% sass_src 'sass/global.scss' %}" rel="stylesheet" type="text/css" />
-    <link href="{% sass_src 'sass/homepage.scss' %}" rel="stylesheet" type="text/css" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{% static 'js/global.js' %}"></script>
-    <input id="Page" type="hidden" value="{{page}}" />
-  </head>
-  <body>
-    <nav>{% include "components/navbar.html" %}</nav>
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% load sass_tags %}
+<link href="{% sass_src 'sass/homepage.scss' %}" rel="stylesheet" type="text/css" />
     <div class="container">
       <div class="jumbotron">
         <img src="{% static 'img/Cover.jpg' %}" alt="" />
@@ -105,8 +85,5 @@
           />
         </div>
       </section>
-      <section>{% include "components/quicklinks.html" %}</section>
-      <footer>{% include "components/footer.html" %}</footer>
     </div>
-  </body>
-</html>
+{% endblock %}

@@ -8,19 +8,22 @@ def navbar(request):
 
 def home(request):
   context = {
-    'page': 'home'
+    'pageID': 'home',
+    'page_title': 'Home'
   }
   return render(request,'homepage.html',context)
 
 def about(request):
   context = {
-    'page': 'about'
+    'pageID': 'about',
+    'page_title': 'About'
   }
   return render(request,'about.html',context)
 
 def our_target(request):
   context = {
-    'page': 'our_target'
+    'pageID': 'our_target',
+    'page_title': 'Our Target'
   }
   return render(request,'our_target.html',context)
 
@@ -28,12 +31,14 @@ def our_target(request):
 
 def events(request):
   context = {
-    'page': 'events'
+    'pageID': 'events',
+    'page_title': 'Events'
   }
   return render(request,'events.html',context)
 
 def contact(request):
   context = {
-    'page': 'contact'
+    'pageID': 'contact',
+    'page_title': 'Contact'
   }
   return render(request,'contact.html',context)

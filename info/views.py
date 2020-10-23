@@ -42,3 +42,6 @@ def contact(request):
     'page_title': 'Contact'
   }
   return render(request,'contact.html',context)
+
+def privacy(request):
+  return render(request,'privacy.html')

@@ -242,15 +242,14 @@ footer {
 .footer-items {
   padding: 11px;
   margin: auto;
-  width: 310px;
-  color: white;
-  height: 50px;
+  width: 305px;
+  color: $light-text;
   font-size: 13px;
   font-family: Avenir;
 }
 
 #footer-link {
-  color: white;
+  color: $light-text;
   margin-right: 10px;
 }
 

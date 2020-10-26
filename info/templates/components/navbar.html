@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% load static %} {% load compress %} {% compress css %}
-    <link
-      type="text/x-scss"
-      href="{% static 'sass/navbar.scss' %}"
-      rel="stylesheet"
-      media="screen"
-    />
-    {% endcompress %}
+    {% load static %} {% load compress %} {% load sass_tags %}
+    
+    <link href="{% sass_src 'sass/navbar.scss' %}" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="nav-items">

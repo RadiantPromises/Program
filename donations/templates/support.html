@@ -2,10 +2,12 @@
 {% block content %}
 {% load static %}
 {% load sass_tags %}
-    <link rel="stylesheet" href="{% static 'css/support.css' %}" />
+    <link href="{% sass_src 'sass/support.scss' %}" rel="stylesheet" type="text/css" />
     <script src="{% static 'js/current_priorities.js' %}" defer></script>
     <div class="container">
-      <h1>Radiant Promises</h1>
+      <section class="banner top-banner">
+        <h1>Support Us</h1>
+      </section>
       <section class="priority-display">
         <iframe
           id="priority-video"
@@ -40,7 +42,7 @@
             alt="Check out with PayPal"
         /></a>
         <div class="stripe-payment">
-          <button id="pay-with-card">Pay with Card</button>
+          <button class="payment-button">Pay with Card</button>
           <!-- <form action="/updatePaymentIntent" method="POST" id="payment-form"> -->
           <form action="stripePayment" method="POST" id="payment-form">
             {% csrf_token %}
@@ -74,7 +76,7 @@
         </div>
       </section>
       <section class="how-to-give">
-        <h1>Additional Ways to Give</h1>
+        <h1 class="additional-ways-to-give" >Additional Ways to Give</h1>
         <div class="row">
           <div class="giving-type">
             <h2 class="giving-header">Real Estate</h2>

@@ -4,6 +4,7 @@ $secondary-color: #203e8c;
 $tertiary-color: #7cabf4;
 $light-text: white;
 $dark-text: black;
+$text-font: Avenir;
 
 .container {
   text-align: center;
@@ -12,7 +13,7 @@ $dark-text: black;
   // h1 {
   //   font-family: Dancing;
   //   font-size: 40px;
-  //   color: #ec5f87;
+  //   color: $primary-color;
   //   border-bottom: solid gray 2px;
   //   max-width: 400px;
   //   margin: auto;
@@ -43,7 +44,8 @@ $dark-text: black;
     -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
     box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
-    border: solid 1px #ec5f87;
+    border: solid 1px;
+    border-color: $primary-color;
     border-radius: 5px;
 
     .progress-bar {
@@ -75,12 +77,21 @@ $dark-text: black;
       .leftover {
         display: inline-block;
         height: 100%;
-        background-color: #ec5f87;
+        background-color: $primary-color;
         opacity: 0.5;
         color: black;
         border-top-right-radius: 14px;
         border-bottom-right-radius: 14px;
       }
+    }
+
+    .progress-number-collapsed {
+      display: none;
+      padding: 5px;
+      height: 20px;
+      font-family: $text-font;
+      font-size: 18px;
+      font-weight: bold;
     }
 
     .give-buttons {
@@ -89,8 +100,9 @@ $dark-text: black;
       justify-content: space-around;
 
       .give-button {
+        font-family: $text-font;
         display: inline-block;
-        color: white;
+        color: $light-text;
         padding: 10px;
         width: 75px;
         background-color: #045091;
@@ -105,52 +117,53 @@ $dark-text: black;
         margin-top: 10px;
         width: 170px;
         height: 32px;
-        background-color: #ec5f87;
-        color: white;
+        background-color: $primary-color;
+        text-decoration: none;
+        color: $light-text;
         border: none;
         border-radius: 5px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       }
-    }
 
-    #payment-form {
-      display: none;
-
-      .hidden {
+      #payment-form {
         display: none;
-      }
 
-      #card-element {
-        height: 25px;
-        width: 300px;
-        padding: 5px;
-        margin: 10px auto 5px auto;
-        -moz-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
-          0px 2px 5px 0px rgba(50, 50, 93, 0.1),
-          0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-        -webkit-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
-          0px 2px 5px 0px rgba(50, 50, 93, 0.1),
-          0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-        box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
-          0px 2px 5px 0px rgba(50, 50, 93, 0.1),
-          0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-      }
+        .hidden {
+          display: none;
+        }
 
-      #payment-submit-button {
-        height: 25px;
-        width: 300px;
-        background-color: #045091;
-        opacity: 0.8;
-        color: white;
-      }
+        #card-element {
+          height: 25px;
+          width: 300px;
+          padding: 5px;
+          margin: 10px auto 5px auto;
+          -moz-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+            0px 2px 5px 0px rgba(50, 50, 93, 0.1),
+            0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+          -webkit-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+            0px 2px 5px 0px rgba(50, 50, 93, 0.1),
+            0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+          box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+            0px 2px 5px 0px rgba(50, 50, 93, 0.1),
+            0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+        }
 
-      #powered-by-stripe {
-        color: gray;
-        font-size: 10px;
-        height: 20px;
-        padding-bottom: 5px;
-        vertical-align: top;
+        #payment-submit-button {
+          height: 25px;
+          width: 300px;
+          background-color: #045091;
+          opacity: 0.8;
+          color: white;
+        }
+
+        #powered-by-stripe {
+          color: gray;
+          font-size: 10px;
+          height: 20px;
+          padding-bottom: 5px;
+          vertical-align: top;
+        }
       }
     }
 
@@ -179,7 +192,7 @@ $dark-text: black;
     .additional-ways-to-give {
       font-family: Dancing;
       font-size: 40px;
-      color: #ec5f87;
+      color: $primary-color;
       border-bottom: solid gray 2px;
       max-width: 400px;
       margin: auto;
@@ -196,6 +209,7 @@ $dark-text: black;
 
         .giving-header {
           font-family: Lobster;
+          margin-bottom: 2px;
           color: #045091;
         }
       }
@@ -205,5 +219,105 @@ $dark-text: black;
   .thank-you {
     /* height: 10vw; */
     padding: 7vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    .priority-display {
+      height: 60vw;
+    }
+
+    .priority-display,
+    .action {
+      width: 90vw;
+    }
+
+    .how-to-give {
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .row {
+        flex-direction: column;
+        align-content: center;
+
+        margin: auto;
+        width: 60vw;
+        margin-top: 0px;
+
+        .giving-type {
+          width: 100%;
+
+          .giving-header {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    .action {
+      .progress-bar {
+        .progress,
+        .leftover {
+          font-size: 0px;
+        }
+        .progress-number {
+          display: none;
+        }
+      }
+      .progress-number-collapsed {
+        display: block;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    .how-to-give {
+      h1 {
+        padding-bottom: 10px;
+      }
+      .row {
+        width: 90vw;
+        .giving-type {
+          .giving-header {
+            font-size: 5.4vw;
+            text-align: center;
+            margin: 20px 0px 10px 0px;
+          }
+          p {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    .action {
+      .give-buttons{
+        .give-button{
+          width: 50px;
+        }
+      }
+
+      .stripe-payment {
+        #payment-form {
+          #card-element,
+          .payment-button,
+          #payment-submit-button {
+            width: 70vw;
+          }
+        }
+      }
+    }
   }
 }

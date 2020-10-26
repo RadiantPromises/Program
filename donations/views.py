@@ -7,6 +7,8 @@ from decouple import config
 import stripe
 import json
 
+from info.views import getRootIP
+
 @register.filter
 def get_range(value):
   return range(value)
@@ -25,7 +27,9 @@ def index(request):
 
 
 
+  donationsPage = getRootIP
   context = {
+    'donationsPage': donationsPage,
     'pageID': "support",
     'page_title': 'Support Us',
     'percentageRaised' : percentageRaised,

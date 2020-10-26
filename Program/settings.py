@@ -148,6 +148,6 @@ COMPRESS_PRECOMPILERS = (
 )
 
 COMPRESS_ROOT = BASE_DIR + "/static/bootstrap"
-STATIC_ROOT = BASE_DIR + "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')

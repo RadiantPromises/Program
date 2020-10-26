@@ -40,6 +40,14 @@ a {
   font-family: Avenir;
   src: local("Avenir"), url("../fonts/Avenir.ttc") format("truetype"); }
 
+@font-face {
+  font-family: Dancing;
+  src: local("Dancing"), url("../fonts/DancingScript-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: Lobster;
+  src: local("Lobster"), url("../fonts/Lobster-Regular.ttf") format("truetype"); }
+
 /* HTML TAGS */
 button {
   background-color: #ec5f87;

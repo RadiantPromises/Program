@@ -1,10 +1,14 @@
 from django.shortcuts import render, HttpResponse
+from decouple import config
 
 def index(request):
   return HttpResponse('Hello!')
 
 def navbar(request):
-  return render(request,'navbar.html')
+  context = {
+    'RootIP': config("ROOT_IP")
+  }
+  return render(request,'navbar.html',context)
 
 def home(request):
   context = {

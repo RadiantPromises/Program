@@ -21,7 +21,8 @@
     -webkit-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
     box-shadow: -2px 7px 40px 2px rgba(0, 0, 0, 0.29);
-    border: solid 1px #ec5f87;
+    border: solid 1px;
+    border-color: #ec5f87;
     border-radius: 5px; }
     .container .action .progress-bar {
       height: 25px;
@@ -53,11 +54,19 @@
         color: black;
         border-top-right-radius: 14px;
         border-bottom-right-radius: 14px; }
+    .container .action .progress-number-collapsed {
+      display: none;
+      padding: 5px;
+      height: 20px;
+      font-family: Avenir;
+      font-size: 18px;
+      font-weight: bold; }
     .container .action .give-buttons {
       margin: 30px 0px 20px 0px;
       display: flex;
       justify-content: space-around; }
       .container .action .give-buttons .give-button {
+        font-family: Avenir;
         display: inline-block;
         color: white;
         padding: 10px;
@@ -71,15 +80,16 @@
       width: 170px;
       height: 32px;
       background-color: #ec5f87;
+      text-decoration: none;
       color: white;
       border: none;
       border-radius: 5px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; }
-    .container .action #payment-form {
+    .container .action .stripe-payment #payment-form {
       display: none; }
-      .container .action #payment-form .hidden {
+      .container .action .stripe-payment #payment-form .hidden {
         display: none; }
-      .container .action #payment-form #card-element {
+      .container .action .stripe-payment #payment-form #card-element {
         height: 25px;
         width: 300px;
         padding: 5px;
@@ -87,13 +97,13 @@
         -moz-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1), 0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
         -webkit-box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1), 0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
         box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1), 0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07); }
-      .container .action #payment-form #payment-submit-button {
+      .container .action .stripe-payment #payment-form #payment-submit-button {
         height: 25px;
         width: 300px;
         background-color: #045091;
         opacity: 0.8;
         color: white; }
-      .container .action #payment-form #powered-by-stripe {
+      .container .action .stripe-payment #payment-form #powered-by-stripe {
         color: gray;
         font-size: 10px;
         height: 20px;
@@ -129,9 +139,58 @@
         text-align: justify; }
         .container .how-to-give .row .giving-type .giving-header {
           font-family: Lobster;
+          margin-bottom: 2px;
           color: #045091; }
   .container .thank-you {
     /* height: 10vw; */
     padding: 7vw; }
+
+@media only screen and (max-width: 1000px) {
+  .container .priority-display {
+    height: 60vw; }
+  .container .priority-display,
+  .container .action {
+    width: 90vw; }
+  .container .how-to-give h1 {
+    margin-bottom: 20px; }
+  .container .how-to-give .row {
+    flex-direction: column;
+    align-content: center;
+    margin: auto;
+    width: 60vw;
+    margin-top: 0px; }
+    .container .how-to-give .row .giving-type {
+      width: 100%; }
+      .container .how-to-give .row .giving-type .giving-header {
+        margin-top: 10px; } }
+
+@media only screen and (max-width: 700px) {
+  .container .action .progress-bar .progress,
+  .container .action .progress-bar .leftover {
+    font-size: 0px; }
+  .container .action .progress-bar .progress-number {
+    display: none; }
+  .container .action .progress-number-collapsed {
+    display: block; } }
+
+@media only screen and (max-width: 550px) {
+  .container .how-to-give h1 {
+    padding-bottom: 10px; }
+  .container .how-to-give .row {
+    width: 90vw; }
+    .container .how-to-give .row .giving-type .giving-header {
+      font-size: 5.4vw;
+      text-align: center;
+      margin: 20px 0px 10px 0px; }
+    .container .how-to-give .row .giving-type p {
+      text-align: center; } }
+
+@media only screen and (max-width: 400px) {
+  .container .action .give-buttons .give-button {
+    width: 50px; }
+  .container .action .stripe-payment #payment-form #card-element,
+  .container .action .stripe-payment #payment-form .payment-button,
+  .container .action .stripe-payment #payment-form #payment-submit-button {
+    width: 70vw; } }
 
 /*# sourceMappingURL=support.css.map */

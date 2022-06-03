@@ -4,5 +4,10 @@ Website design for 6-12 month life enhancement program for homeless young adults
 The donations platform was built on a Python/Django stack using Stripe payment processing and Twilio SMS Communications.
 
 <p align="center">
-  <img src="Donations_Page_Clean.png" alt="">
+  <img src="./Portfolio/Donations_Page_Clean.png" alt="">
+  <img style="display: block;" src="./Portfolio/Donations Form.png" alt="">
+  <img src="./Portfolio/Landing Page_Responsive.png" alt="">
+  <img src="./Portfolio/Prototyping.png" alt="">
+  <img src="./Portfolio/Redesign.png" alt="">
+  <img src="./Portfolio/UI Design.png" alt="">
 </p>
